@@ -6,79 +6,95 @@
 //
 
 import UIKit
+import SnapKit
 
-class HomeViewController: UIViewController, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UIScrollViewDelegate{
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var stickyView: UIView!
-    
-    @IBOutlet weak var mainImage: UIImageView!
-    
-    @IBOutlet weak var deliverButton: UIButton!
-    
-    
-    // 처음 나올때
-    var initialStickyViewYPosition: CGFloat = 300
-    var previousScrollOffset: CGFloat = 0.0
-    
+    private lazy var scrollView:UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .blue
+        scrollView.delegate = self
+        view.addSubview(scrollView)
+        return scrollView
+    }()
+    private lazy var view1: UIView = {
+        let view = UIView()
+        view.backgroundColor = .green
+       // scrollView.addSubview(view)
+        return view
+    }()
+    private lazy var view2: UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+       // scrollView.addSubview(view)
+        return view
+    }()
+    private lazy var view3: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        //scrollView.addSubview(view)
+        
+        return view
+    }()
+    private lazy var view4: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray
+      //  scrollView.addSubview(view)
+        return view
+    }()
+    private lazy var view5: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        //scrollView.addSubview(view)
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        scrollView.delegate = self
-        stickyView.frame.origin.y = initialStickyViewYPosition
-       
+        makeUI()
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let yOffset = scrollView.contentOffset.y
+    func makeUI(){
         
-        let newStickyViewYPosition = max(yOffset, initialStickyViewYPosition)
-        let positionDifference = newStickyViewYPosition - initialStickyViewYPosition
+        view.addSubview(scrollView)
         
-        if stickyView.frame.origin.y != newStickyViewYPosition {
-            stickyView.frame.origin.y = newStickyViewYPosition
-            
-         
-            
-            if yOffset > previousScrollOffset { // 내리기
-                print("down")
-                UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-                    self.deliverButton.transform = CGAffineTransform(scaleX: 1, y: 1.0)
-                }, completion: nil)
-                deliverButton.layer.cornerRadius = 20
-                deliverButton.layer.masksToBounds = true
-            } else if yOffset < previousScrollOffset { // 올리기
-                print("up")
-                UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-                    self.deliverButton.transform = CGAffineTransform(scaleX: 2.5, y: 1.0)
-                    self.deliverButton.titleLabel?.text = "Delivers"
-                }, completion: nil)
-            }
-            
-            previousScrollOffset = yOffset
-            
-            let alphaValue = max(0, min(positionDifference / 100, 1.0))
-            stickyView.layer.shadowColor = UIColor.gray.cgColor
-            stickyView.layer.shadowOpacity = Float(alphaValue)
-            stickyView.layer.shadowRadius = alphaValue*5
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
+        scrollView.addSubview(view1)
+        scrollView.addSubview(view2)
+        scrollView.addSubview(view3)
+        scrollView.addSubview(view4)
+        scrollView.addSubview(view5)
+
         
-        // 그림자를
-        let alphaValue = max(0, min(positionDifference / 100, 1.0))
-        
-        stickyView.layer.shadowColor = UIColor.gray.cgColor
-        stickyView.layer.shadowOpacity = Float(alphaValue)
-        stickyView.layer.shadowRadius = alphaValue*5
+        view1.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.height.equalTo(300)
+            make.leading.trailing.equalToSuperview()
+        }
+        view2.snp.makeConstraints { make in
+            make.top.equalTo(view1.snp.bottom)
+            make.height.equalTo(200)
+            make.leading.trailing.equalToSuperview()
+        }
+        view3.snp.makeConstraints { make in
+            make.top.equalTo(view2.snp.bottom)
+            make.height.equalTo(200)
+            make.leading.trailing.equalToSuperview()
+        }
+        view4.snp.makeConstraints { make in
+            make.top.equalTo(view3.snp.bottom)
+            make.height.equalTo(300)
+            make.leading.trailing.equalToSuperview()
+        }
+        view5.snp.makeConstraints { make in
+            make.top.equalTo(view4.snp.bottom)
+            make.height.equalTo(100)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
         
     }
-    func buttonSetting(){
-        deliverButton.layer.cornerRadius = 20
-        deliverButton.layer.masksToBounds = true
-    }
-    
-    
-    
-    
+  
 }

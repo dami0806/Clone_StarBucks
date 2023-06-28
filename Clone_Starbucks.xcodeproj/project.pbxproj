@@ -10,7 +10,6 @@
 		379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */; };
 		379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */; };
 		379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC229CEC42F00EA4A21 /* ViewController.swift */; };
-		379ACDC629CEC42F00EA4A21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379ACDC429CEC42F00EA4A21 /* Main.storyboard */; };
 		379ACDC829CEC43200EA4A21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379ACDC729CEC43200EA4A21 /* Assets.xcassets */; };
 		379ACDCB29CEC43200EA4A21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379ACDC929CEC43200EA4A21 /* LaunchScreen.storyboard */; };
 		379ACDD829CEC4BE00EA4A21 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDD729CEC4BE00EA4A21 /* HomeViewController.swift */; };
@@ -18,6 +17,11 @@
 		379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */; };
 		379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */; };
 		379ACDE029CEC55D00EA4A21 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDF29CEC55D00EA4A21 /* OtherViewController.swift */; };
+		37A61D6E2A4C23D600DD2476 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D6D2A4C23D600DD2476 /* Color.swift */; };
+		37A61D712A4C2A2300DD2476 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D702A4C2A2300DD2476 /* SnapKit */; };
+		37A61D742A4C2A3E00DD2476 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D732A4C2A3E00DD2476 /* RxCocoa */; };
+		37A61D762A4C2A3E00DD2476 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D752A4C2A3E00DD2476 /* RxRelay */; };
+		37A61D782A4C2A3E00DD2476 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D772A4C2A3E00DD2476 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +29,6 @@
 		379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		379ACDC229CEC42F00EA4A21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		379ACDC529CEC42F00EA4A21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		379ACDC729CEC43200EA4A21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		379ACDCA29CEC43200EA4A21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379ACDCC29CEC43200EA4A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		379ACDDF29CEC55D00EA4A21 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		37A61D6D2A4C23D600DD2476 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A61D762A4C2A3E00DD2476 /* RxRelay in Frameworks */,
+				37A61D742A4C2A3E00DD2476 /* RxCocoa in Frameworks */,
+				37A61D782A4C2A3E00DD2476 /* RxSwift in Frameworks */,
+				37A61D712A4C2A2300DD2476 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,7 @@
 		379ACDBD29CEC42F00EA4A21 /* Clone_Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				37A61D6C2A4C23BA00DD2476 /* extension */,
 				379ACDD629CEC4A600EA4A21 /* Other */,
 				379ACDD529CEC4A200EA4A21 /* Shop */,
 				379ACDD429CEC49B00EA4A21 /* Order */,
@@ -74,7 +83,6 @@
 				379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */,
 				379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */,
 				379ACDC229CEC42F00EA4A21 /* ViewController.swift */,
-				379ACDC429CEC42F00EA4A21 /* Main.storyboard */,
 				379ACDC729CEC43200EA4A21 /* Assets.xcassets */,
 				379ACDC929CEC43200EA4A21 /* LaunchScreen.storyboard */,
 				379ACDCC29CEC43200EA4A21 /* Info.plist */,
@@ -122,6 +130,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		37A61D6C2A4C23BA00DD2476 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				37A61D6D2A4C23D600DD2476 /* Color.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +154,12 @@
 			dependencies = (
 			);
 			name = Clone_Starbucks;
+			packageProductDependencies = (
+				37A61D702A4C2A2300DD2476 /* SnapKit */,
+				37A61D732A4C2A3E00DD2476 /* RxCocoa */,
+				37A61D752A4C2A3E00DD2476 /* RxRelay */,
+				37A61D772A4C2A3E00DD2476 /* RxSwift */,
+			);
 			productName = Clone_Starbucks;
 			productReference = 379ACDBB29CEC42F00EA4A21 /* Clone_Starbucks.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +188,10 @@
 				Base,
 			);
 			mainGroup = 379ACDB229CEC42F00EA4A21;
+			packageReferences = (
+				37A61D6F2A4C2A2300DD2476 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				37A61D722A4C2A3E00DD2476 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 379ACDBC29CEC42F00EA4A21 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,7 +208,6 @@
 			files = (
 				379ACDCB29CEC43200EA4A21 /* LaunchScreen.storyboard in Resources */,
 				379ACDC829CEC43200EA4A21 /* Assets.xcassets in Resources */,
-				379ACDC629CEC42F00EA4A21 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,20 +226,13 @@
 				379ACDE029CEC55D00EA4A21 /* OtherViewController.swift in Sources */,
 				379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
+				37A61D6E2A4C23D600DD2476 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		379ACDC429CEC42F00EA4A21 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				379ACDC529CEC42F00EA4A21 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		379ACDC929CEC43200EA4A21 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,9 +370,9 @@
 				INFOPLIST_FILE = Clone_Starbucks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,9 +398,9 @@
 				INFOPLIST_FILE = Clone_Starbucks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -418,6 +436,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37A61D6F2A4C2A2300DD2476 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		37A61D722A4C2A3E00DD2476 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37A61D702A4C2A2300DD2476 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37A61D6F2A4C2A2300DD2476 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		37A61D732A4C2A3E00DD2476 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37A61D722A4C2A3E00DD2476 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		37A61D752A4C2A3E00DD2476 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37A61D722A4C2A3E00DD2476 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		37A61D772A4C2A3E00DD2476 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37A61D722A4C2A3E00DD2476 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 379ACDB329CEC42F00EA4A21 /* Project object */;
 }
