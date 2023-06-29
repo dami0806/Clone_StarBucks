@@ -24,7 +24,7 @@ class ViewController: UITabBarController{
     func setupTabBar() {
         tabBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
         tabBar.tintColor = UIColor.starbucksGreen
-        // 첫번째 화면은 네비게이션컨트롤러로 만들기 (기본루트뷰 설정)
+       
         let homeViewController = HomeViewController()
         let payViewController = PayViewController()
         let orderViewController = OrderViewController()
@@ -38,10 +38,28 @@ class ViewController: UITabBarController{
         shopViewController.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(systemName: "bag.fill"), tag: 3)
 
         otherViewController.tabBarItem = UITabBarItem(title: "Other", image: UIImage(systemName: "ellipsis"), tag: 4)
+        
+//        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
+//            let payNavigationController = UINavigationController(rootViewController: payViewController)
+//            let orderNavigationController = UINavigationController(rootViewController: orderViewController)
+//            let shopNavigationController = UINavigationController(rootViewController: shopViewController)
+//            let otherNavigationController = UINavigationController(rootViewController: otherViewController)
+        
+//        let viewControllers = [homeNavigationController, payNavigationController, orderNavigationController, shopNavigationController, otherNavigationController]
+//              self.viewControllers = viewControllers
 
-        let viewControllers = [homeViewController, payViewController, orderViewController, shopViewController, otherViewController]
-              self.viewControllers = viewControllers
-        self.selectedIndex = 0
+        let viewControllers: [UIViewController] = [
+            homeViewController,
+            payViewController,
+            orderViewController,
+            shopViewController,
+            otherViewController
+        ].map {  UINavigationController(rootViewController: $0)
+        }
+       
+        
+        setViewControllers(viewControllers, animated: false)
+        selectedIndex = 0
     }
 
 }

@@ -11,6 +11,10 @@ import SnapKit
 class HomeViewController: UIViewController, UIScrollViewDelegate{
     final let deliverViewHeight = 60
     final let deliverViewWeight = 180
+    
+    private var previousOffset: CGFloat = 0
+    private var previousContentOffset: CGPoint = .zero
+
     private lazy var scrollView:UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .blue
@@ -93,9 +97,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
     }()
  
 
-    private var previousOffset: CGFloat = 0
-    private var previousContentOffset: CGPoint = .zero
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,8 +131,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         }
       
         deliverImage.snp.makeConstraints { make in
-            make.leading.equalTo(stackView.snp.leading)
-            
+           
+            make.leading.equalTo(stackView.snp.leading).offset(-8)
             make.centerY.equalTo(stackView.snp.centerY)
             make.height.width.equalTo(40)
         }
@@ -178,7 +179,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
                deliverImage.snp.remakeConstraints{make in
                    make.center.equalTo(stackView)
                    make.height.width.equalTo(40)
-                   make.leading.equalTo(stackView.snp.leading).offset(-8)
+                   make.leading.equalTo(stackView.snp.leading).offset(-8) 
                    stackView.reloadInputViews()
                }
                deliverLabel.isHidden = true
