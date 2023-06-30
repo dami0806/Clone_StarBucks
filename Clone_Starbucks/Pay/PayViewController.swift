@@ -29,11 +29,10 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemPink
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+  
         // 셀 등록
         collectionView.register(PayCollectionViewCell.self, forCellWithReuseIdentifier: "payCell")
         contentView.addSubview(collectionView)
@@ -65,7 +64,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         changeTitleMode()
         dataManager.makeCardsData() // 데이터 초기화
         cardsDataArray = dataManager.getCardData()
-     
+      
    
         
     }
@@ -97,7 +96,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
-    
+  
     private func configureItems(){
         
         self.navigationController?.navigationBar.backgroundColor = .white
@@ -133,9 +132,22 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         
         // MARK: - UICollectionViewDelegateFlowLayout
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: collectionView.bounds.width, height: 500) // 적절한 셀 크기를 설정해주세요.
-        }
-        
+              let collectionViewWidth = collectionView.bounds.width - 30
+              let cellHeight: CGFloat = collectionView.bounds.height - 40
+              
+              return CGSize(width: collectionViewWidth, height: cellHeight)
+          }
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+                return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+            }
+            
+//            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//                return 20
+//            }
+            
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+                return 10
+            }
     
 }
 

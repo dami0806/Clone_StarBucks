@@ -24,7 +24,6 @@ class PayCollectionViewCell: UICollectionViewCell {
     private lazy var cardName: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.backgroundColor = .blue
         contentView.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 15)
         return label
@@ -32,7 +31,6 @@ class PayCollectionViewCell: UICollectionViewCell {
     private lazy var cardNameImg: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .black
         contentView.addSubview(imageView)
         return imageView
     }()
@@ -43,7 +41,6 @@ class PayCollectionViewCell: UICollectionViewCell {
     private lazy var cardPointImg: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .black
         contentView.addSubview(imageView)
         return imageView
     }()
@@ -51,7 +48,6 @@ class PayCollectionViewCell: UICollectionViewCell {
     private lazy var cardPoint: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.backgroundColor = .blue
         label.setContentHuggingPriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -80,7 +76,6 @@ class PayCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 5
-        stackView.backgroundColor = .orange
         contentView.addSubview(stackView)
         return stackView
     }()
@@ -94,6 +89,7 @@ class PayCollectionViewCell: UICollectionViewCell {
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = UIColor.greenText
         label.font = UIFont.systemFont(ofSize: 15)
         validNumSt.addArrangedSubview(label)
         return label
@@ -130,6 +126,16 @@ class PayCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
+        // UICollectionView의 배경색 설정
+        contentView.backgroundColor = .blue
+
+        // UICollectionView의 layer에 그림자 추가
+        contentView.layer.shadowColor = UIColor.lightGray.cgColor   // 그림자의 색상
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 6)   // 그림자의 오프셋 (가로, 세로)
+        contentView.layer.shadowRadius = 4   // 그림자의 반경 (그림자의 흐림 정도)
+        contentView.layer.shadowOpacity = 0.3   // 그림자의 불투명도 (0 ~ 1 사이)
+        contentView.layer.masksToBounds = false   // 그림자가 UICollectionView 경계를 벗어나도록 함
+
         //1.카드이미지
         cardImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -180,8 +186,7 @@ class PayCollectionViewCell: UICollectionViewCell {
         //5.카드번호
         cardNum.snp.makeConstraints { make in
             make.top.equalTo(barcordImageView.snp.bottom).offset(3)
-            //            make.height.equalTo(200)
-            //            make.width.equalTo(350)
+         
             make.centerX.equalToSuperview()
         }
         
@@ -194,18 +199,17 @@ class PayCollectionViewCell: UICollectionViewCell {
         buttonSt.snp.makeConstraints { make in
             make.top.equalTo(validNumSt.snp.bottom).offset(3)
             make.centerX.equalToSuperview()
-            //     make.bottom.equalToSuperview()
-            // make.height.equalTo(50)
-            //    make.width.equalTo(100)
+            make.bottom.equalToSuperview().inset(5)
+    
         }
         //7-1.자동충전
         autoRecharge.snp.makeConstraints { make in
-            make.width.height.equalTo(90)
+            
             
         }
         //7-2.일반충전
         normalRecharge.snp.makeConstraints { make in
-            make.width.height.equalTo(90)
+           
             
         }
         
