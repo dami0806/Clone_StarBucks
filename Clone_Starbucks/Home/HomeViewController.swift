@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
     
     private var previousOffset: CGFloat = 0
     private var previousContentOffset: CGPoint = .zero
-
+    
     private lazy var scrollView:UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .blue
@@ -23,17 +23,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         return scrollView
     }()
     private lazy var contentView: UIView = {
-          let contentView = UIView()
-          contentView.backgroundColor = .clear
+        let contentView = UIView()
+        contentView.backgroundColor = .clear
         scrollView.addSubview(contentView)
-          return contentView
-      }()
- 
+        return contentView
+    }()
+    
     private lazy var deliverView: UIView = {
         let view = UIView()
         view.backgroundColor = .starbucksGreen
-        view.layer.borderWidth = 8
-        view.layer.borderColor = UIColor.starbucksGreen.cgColor
         view.layer.cornerRadius =  CGFloat(deliverViewHeight/2)
         contentView.addSubview(view)
         return view
@@ -42,15 +40,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         let st = UIStackView()
         st.axis = .horizontal
         st.alignment = .center
-        st.spacing = 10
-        //st.backgroundColor = .black
+        st.spacing = 3
+        st.distribution = .equalSpacing
         deliverView.addSubview(st)
         return st
     }()
+    
     private lazy var deliverImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "deliverImage")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         stackView.addArrangedSubview(imageView)
         return imageView
     }()
@@ -59,10 +58,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         label.text = "Delivers"
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 19)
-       stackView.addArrangedSubview(label)
+        label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
+        stackView.addArrangedSubview(label)
         return label
     }()
-
+    
     
     private lazy var view1: UIView = {
         let view = UIView()
@@ -95,8 +96,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         contentView.addSubview(view)
         return view
     }()
- 
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,37 +111,31 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-       
+        
         contentView.snp.makeConstraints { make in
-                make.edges.equalTo(scrollView)
-                make.width.equalTo(scrollView) // 내용 뷰의 너비를 스크롤 뷰와 동일하게 설정
-            }
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView) // 내용 뷰의 너비를 스크롤 뷰와 동일하게 설정
+        }
         deliverView.snp.makeConstraints { make in
-             make.trailing.equalToSuperview().offset(-30) // 오른쪽으로 20만큼 여백
-             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
-              make.width.equalTo(deliverViewWeight) // 너비 설정
-              make.height.equalTo(deliverViewHeight) // 높이 설정
+            make.trailing.equalToSuperview().inset(30) // 오른쪽으로 20만큼 여백
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.width.equalTo(deliverViewWeight) // 너비 설정
+            make.height.equalTo(deliverViewHeight) // 높이 설정
             deliverView.clipsToBounds = true //잘라내기
             
         }
-      
+        
         stackView.snp.makeConstraints { make in
-           // make.center.equalTo(deliverView)
-            make.width.height.equalTo(deliverView)
+            make.top.bottom.equalTo(deliverView).inset(10)
+            make.leading.trailing.equalTo(deliverView).inset(30)
 
         }
-      
+        
         deliverImage.snp.makeConstraints { make in
-           
-            make.leading.equalTo(stackView.snp.leading).offset(-8)
-            make.centerY.equalTo(stackView.snp.centerY)
-            make.height.width.equalTo(40)
+          make.width.height.equalTo(deliverViewHeight-20)
         }
         deliverLabel.isHidden = false
-        deliverLabel.snp.makeConstraints { make in
-
-            make.centerY.equalTo(stackView.snp.centerY)
-        }
+        
         
         
         view1.snp.makeConstraints { make in
@@ -172,35 +167,45 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-           if scrollView.contentOffset.y > previousContentOffset.y { // 스크롤이 내려갔을 때
-               deliverView.snp.updateConstraints { make in
-                   make.width.equalTo(deliverViewHeight)
-               }
-               deliverImage.snp.remakeConstraints{make in
-                   make.center.equalTo(stackView)
-                   make.height.width.equalTo(40)
-                   make.leading.equalTo(stackView.snp.leading).offset(-8) 
-                   stackView.reloadInputViews()
-               }
-               deliverLabel.isHidden = true
-               
-               
-           } else if scrollView.contentOffset.y < previousContentOffset.y { // 스크롤이 위로 올라갔을 때
-               deliverView.snp.updateConstraints { make in
-                   make.width.equalTo(deliverViewWeight)
-               }
-               deliverImage.snp.remakeConstraints{make in
-                   make.leading.equalTo(stackView.snp.leading).offset(28)
-                   
-                   make.centerY.equalTo(stackView.snp.centerY)
-                   make.height.width.equalTo(40)
-               }
-               deliverLabel.isHidden = false
-           }
-        UIView.animate(withDuration: 0.16) {
-                   self.view.layoutIfNeeded()
-               }
-           previousContentOffset = scrollView.contentOffset // 이전 컨텐트 오프셋 업데이트
-       }
+        if scrollView.contentOffset.y > previousContentOffset.y { // 스크롤이 내려갔을 때 작아짐
+            deliverView.snp.updateConstraints { make in
+                make.width.equalTo(deliverViewHeight)
+            }
+            
+            stackView.snp.remakeConstraints { make in
+                make.edges.equalTo(deliverView).inset(10)
+                
+            }
+            deliverImage.snp.remakeConstraints{make in
+                make.width.height.equalTo(deliverViewHeight-20)
+                make.center.equalTo(deliverView.snp.center)
+                
+                
+            }
+            deliverLabel.isHidden = true
+            
+            
+        } else if scrollView.contentOffset.y < previousContentOffset.y { // 스크롤이 위로 올라갔을 때
+            deliverView.snp.updateConstraints { make in
+                make.width.equalTo(deliverViewWeight)
+            }
+            stackView.snp.remakeConstraints { make in
+                make.top.bottom.equalTo(deliverView).inset(10)
+                make.leading.trailing.equalTo(deliverView).inset(30)
+
+            }
+            
+            deliverImage.snp.remakeConstraints{make in
       
+                make.width.height.equalTo(deliverViewHeight-20)
+                
+            }
+            deliverLabel.isHidden = false
+        }
+        UIView.animate(withDuration: 0.16) {
+            self.view.layoutIfNeeded()
+        }
+        previousContentOffset = scrollView.contentOffset // 이전 컨텐트 오프셋 업데이트
+    }
+    
 }
