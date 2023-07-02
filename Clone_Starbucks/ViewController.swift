@@ -33,7 +33,7 @@ class ViewController: UITabBarController{
      
         homeViewController.tabBarItem = UITabBarItem(title:"Home",image: UIImage(systemName: "house.fill"), tag: 0)
         payViewController.tabBarItem = UITabBarItem(title: "Pay", image: UIImage(systemName: "creditcard.fill"), tag: 1)
-        orderViewController.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "Order"), tag: 2)
+        orderViewController.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "creditcard.fill"), tag: 2)
 
         shopViewController.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(systemName: "bag.fill"), tag: 3)
 

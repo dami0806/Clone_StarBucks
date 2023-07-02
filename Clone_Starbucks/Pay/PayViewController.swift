@@ -88,6 +88,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
             make.trailing.leading.equalToSuperview()
             make.height.equalTo(300)
         }
+        
         adView.snp.makeConstraints { make in
             make.top.equalTo(twoButtonView.snp.bottom)
             make.trailing.leading.equalToSuperview()

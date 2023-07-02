@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
+		378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529E82A4ED407003431EA /* AllMenuViewController.swift */; };
+		378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EA2A4ED413003431EA /* MyMenuViewController.swift */; };
+		378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EC2A4ED424003431EA /* HallCakeViewController.swift */; };
 		379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */; };
 		379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */; };
 		379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC229CEC42F00EA4A21 /* ViewController.swift */; };
@@ -26,10 +29,14 @@
 		37A61D7A2A4D6F6400DD2476 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D792A4D6F6400DD2476 /* UIViewController.swift */; };
 		37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */; };
 		37A61D802A4D780600DD2476 /* PayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7F2A4D780600DD2476 /* PayModel.swift */; };
+		37CFF37C2A4F526000BC154F /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFF37B2A4F526000BC154F /* PreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		378529E82A4ED407003431EA /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
+		378529EA2A4ED413003431EA /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
+		378529EC2A4ED424003431EA /* HallCakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCakeViewController.swift; sourceTree = "<group>"; };
 		379ACDBB29CEC42F00EA4A21 /* Clone_Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clone_Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 		37A61D792A4D6F6400DD2476 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		37A61D7F2A4D780600DD2476 /* PayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayModel.swift; sourceTree = "<group>"; };
+		37CFF37B2A4F526000BC154F /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		378529E62A4ED3A7003431EA /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				378529E82A4ED407003431EA /* AllMenuViewController.swift */,
+				378529EA2A4ED413003431EA /* MyMenuViewController.swift */,
+				378529EC2A4ED424003431EA /* HallCakeViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		378529E72A4ED3B9003431EA /* Kind */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Kind;
+			sourceTree = "<group>";
+		};
 		379ACDB229CEC42F00EA4A21 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				37A61D7D2A4D77DB00DD2476 /* Models */,
-				37A61D6C2A4C23BA00DD2476 /* extension */,
+				37A61D6C2A4C23BA00DD2476 /* Extension */,
 				379ACDD629CEC4A600EA4A21 /* Other */,
 				379ACDD529CEC4A200EA4A21 /* Shop */,
 				379ACDD429CEC49B00EA4A21 /* Order */,
@@ -119,6 +144,8 @@
 		379ACDD429CEC49B00EA4A21 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				378529E72A4ED3B9003431EA /* Kind */,
+				378529E62A4ED3A7003431EA /* Menu */,
 				379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */,
 			);
 			path = Order;
@@ -140,13 +167,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		37A61D6C2A4C23BA00DD2476 /* extension */ = {
+		37A61D6C2A4C23BA00DD2476 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				37A61D6D2A4C23D600DD2476 /* Color.swift */,
 				37A61D792A4D6F6400DD2476 /* UIViewController.swift */,
+				37CFF37B2A4F526000BC154F /* PreView.swift */,
 			);
-			path = extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		37A61D7D2A4D77DB00DD2476 /* Models */ = {
@@ -241,12 +269,16 @@
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
+				378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */,
 				379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */,
 				37A61D7A2A4D6F6400DD2476 /* UIViewController.swift in Sources */,
 				379ACDD829CEC4BE00EA4A21 /* HomeViewController.swift in Sources */,
 				379ACDE029CEC55D00EA4A21 /* OtherViewController.swift in Sources */,
 				379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */,
+				37CFF37C2A4F526000BC154F /* PreView.swift in Sources */,
+				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
 				37A61D802A4D780600DD2476 /* PayModel.swift in Sources */,
+				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
 				37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */,
 				377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */,
