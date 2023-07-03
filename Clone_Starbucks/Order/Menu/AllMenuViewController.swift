@@ -18,13 +18,22 @@ class AllMenuViewController: UIViewController {
     private lazy var tabBarView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-       
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = 0.5 //0일수록 투명
+        view.layer.shadowOffset = CGSize(width: 0, height: 1.5)
+        view.layer.shadowRadius = 1.5 //0일수록 흐릿
+        
+        view.layer.masksToBounds = false
+        
+        // 그림자가 보일 영역을 설정
+        
+        let shadowPath = UIBezierPath(rect: CGRect(x: 0, y:50-1, width: self.view.bounds.width , height: 1))
+        view.layer.shadowPath = shadowPath.cgPath
         return view
     }()
  
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .blue
            return tableView
     }()
     
@@ -48,7 +57,7 @@ class AllMenuViewController: UIViewController {
        
       
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(tabBarView.snp.bottom)
+            make.top.equalTo(tabBarView.snp.bottom).offset(1)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(60)
         }

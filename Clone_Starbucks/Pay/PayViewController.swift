@@ -53,7 +53,9 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         contentView.addSubview(view)
         return view
     }()
-    
+    override func viewWillAppear(_ animated: Bool) {
+        setNaviItem()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -97,7 +99,24 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
-  
+    private func setNaviItem() {
+        // 네비게이션 바 스타일을 설정
+        navigationController?.navigationBar.barStyle = .default
+        
+        // 네비게이션 바 배경색을 흰색으로 설정
+        navigationController?.navigationBar.barTintColor = .white
+        
+        // 네비게이션 바의 텍스트 컬러를 흰색으로 설정
+        navigationController?.navigationBar.tintColor = .black
+        
+        // 네비게이션 바의 타이틀 텍스트 속성을 설정합니다.
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        //네비게이션 바의 그림자 없애기
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+       
     private func configureItems(){
         
         self.navigationController?.navigationBar.backgroundColor = .white
