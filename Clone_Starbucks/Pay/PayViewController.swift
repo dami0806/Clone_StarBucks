@@ -14,7 +14,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
     
     private lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .blue
+        
         view.addSubview(scrollView)
         return scrollView
     }()
@@ -32,7 +32,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-  
+        
         // 셀 등록
         collectionView.register(PayCollectionViewCell.self, forCellWithReuseIdentifier: "payCell")
         contentView.addSubview(collectionView)
@@ -49,9 +49,19 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
     }()
     private lazy var adView : UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
         contentView.addSubview(view)
+        view.backgroundColor = .yellow
+        
+        
         return view
+    }()
+    private lazy var adImage: UIImageView = {
+        let img = UIImage(named: "광고")
+        let imgView = UIImageView(image: img)
+        
+        imgView.contentMode = .scaleAspectFill
+        adView.addSubview(imgView)
+        return imgView
     }()
     override func viewWillAppear(_ animated: Bool) {
         setNaviItem()
@@ -66,8 +76,8 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         changeTitleMode()
         dataManager.makeCardsData() // 데이터 초기화
         cardsDataArray = dataManager.getCardData()
-      
-   
+        
+        
         
     }
     func makeUI(){
@@ -82,20 +92,24 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top)
             make.width.equalTo(scrollView.snp.width)
-            make.height.equalTo(500)
+            make.height.equalTo(collectionView.snp.width).multipliedBy(1.4)
             
         }
         twoButtonView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom)
             make.trailing.leading.equalToSuperview()
-            make.height.equalTo(300)
+            make.height.equalTo(twoButtonView.snp.width).multipliedBy(0.25)
         }
         
         adView.snp.makeConstraints { make in
             make.top.equalTo(twoButtonView.snp.bottom)
             make.trailing.leading.equalToSuperview()
-            make.height.equalTo(100)
+           // make.height.equalTo(100)
+            make.height.equalTo(adView.snp.width).multipliedBy(0.24)
             make.bottom.equalToSuperview()
+        }
+        adImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
     }
@@ -109,14 +123,14 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         // 네비게이션 바의 텍스트 컬러를 흰색으로 설정
         navigationController?.navigationBar.tintColor = .black
         
-        // 네비게이션 바의 타이틀 텍스트 속성을 설정합니다.
+        // 네비게이션 바의 타이틀 텍스트 속성을 설정
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]
         //네비게이션 바의 그림자 없애기
         navigationController?.navigationBar.shadowImage = UIImage()
     }
-       
+    
     private func configureItems(){
         
         self.navigationController?.navigationBar.backgroundColor = .white
@@ -131,45 +145,60 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         print("List button tapped")
     }
 }
+
+// MARK: - UICollectionViewDataSource
+extension PayViewController:UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // print(cardsDataArray)
+        return cardsDataArray.count
+    }
     
-    // MARK: - UICollectionViewDataSource
-    extension PayViewController:UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           // print(cardsDataArray)
-            return cardsDataArray.count
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "payCell", for: indexPath) as! PayCollectionViewCell
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "payCell", for: indexPath) as! PayCollectionViewCell
-            
-            // 셀에 데이터 설정
-            let cardData = cardsDataArray[indexPath.item]
-            cell.configure(with: cardData)
-            
-            
-            return cell
-        }
+        // 셀에 데이터 설정
+        let cardData = cardsDataArray[indexPath.item]
+        cell.configure(with: cardData)
         
-        // MARK: - UICollectionViewDelegateFlowLayout
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-              let collectionViewWidth = collectionView.bounds.width - 30
-              let cellHeight: CGFloat = collectionView.bounds.height - 40
-              
-              return CGSize(width: collectionViewWidth, height: cellHeight)
-          }
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-                return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-            }
-            
-//            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//                return 20
-//            }
-            
-            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-                return 10
-            }
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width - 30
+        let cellHeight: CGFloat = collectionView.bounds.height - 40
+        
+        return CGSize(width: collectionViewWidth, height: cellHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    }
+    
+    //            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    //                return 20
+    //            }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
     
 }
+
+import SwiftUI
+struct VCPreViewPayViewController:PreviewProvider {
+    static var previews: some View {
+        PayViewController().toPreview().previewDevice("iPhone 14 Pro")
+        // 실행할 ViewController이름 구분해서 잘 지정하기
+    }
+}
+struct VCPreViewPayViewController2:PreviewProvider {
+    static var previews: some View {
+        PayViewController().toPreview().previewDevice("iPhone 11")
+        // 실행할 ViewController이름 구분해서 잘 지정하기
+    }
+}
+
 
 
 

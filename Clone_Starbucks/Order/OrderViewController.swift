@@ -87,7 +87,7 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
         // 네비게이션 바의 텍스트 컬러를 흰색으로 설정
         navigationController?.navigationBar.tintColor = .black
 
-        // 네비게이션 바의 타이틀 텍스트 속성을 설정합니다.
+        // 네비게이션 바의 타이틀 텍스트 속성을 설정
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]

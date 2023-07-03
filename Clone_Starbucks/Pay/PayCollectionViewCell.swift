@@ -58,7 +58,7 @@ class PayCollectionViewCell: UICollectionViewCell {
     //4.바코드
     private lazy var barcordImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         contentView.addSubview(imageView)
         return imageView
     }()
@@ -140,8 +140,8 @@ class PayCollectionViewCell: UICollectionViewCell {
         cardImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(contentView).offset(10)
-            make.height.equalTo(200)
-            make.width.equalTo(350)
+            make.width.equalToSuperview().inset(15)
+            make.height.equalTo(cardImageView.snp.width).multipliedBy(0.75)
             
         }
         
@@ -177,8 +177,9 @@ class PayCollectionViewCell: UICollectionViewCell {
         //4.바코드
         barcordImageView.snp.makeConstraints { make in
             make.top.equalTo(cardPoint.snp.bottom).offset(3)
-            make.leading.trailing.equalToSuperview().offset(10)
-            make.height.equalTo(100)
+            make.leading.trailing.equalToSuperview().inset(15)
+            
+            make.height.equalTo(barcordImageView.snp.width).multipliedBy(0.2)
         //    make.height.equalTo(100)
 
         }
@@ -199,7 +200,7 @@ class PayCollectionViewCell: UICollectionViewCell {
         buttonSt.snp.makeConstraints { make in
             make.top.equalTo(validNumSt.snp.bottom).offset(3)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(8)
     
         }
         //7-1.자동충전
