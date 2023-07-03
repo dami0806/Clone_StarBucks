@@ -21,14 +21,10 @@ class AllMenuViewController: UIViewController {
        
         return view
     }()
-    private lazy var selectStoreView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        return view
-    }()
+ 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-           tableView.backgroundColor = .clear
+        tableView.backgroundColor = .blue
            return tableView
     }()
     
@@ -37,6 +33,7 @@ class AllMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         setupdata()
         setupTabBar()
         selectTab(at: selectedTabIndex, animated: true)
@@ -48,16 +45,12 @@ class AllMenuViewController: UIViewController {
     }
     private func setupTableView() {
         view.addSubview(tableView)
-        view.addSubview(selectStoreView)
-        selectStoreView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
-        }
+       
+      
         tableView.snp.makeConstraints { make in
             make.top.equalTo(tabBarView.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(selectStoreView)
+            make.bottom.equalToSuperview().inset(60)
         }
         
     }

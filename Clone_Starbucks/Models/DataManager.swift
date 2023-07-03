@@ -45,7 +45,7 @@ class DataManager {
     }
     
     func getCardData() -> [Cards] {
-        print(cardsDataArray)
+       // print(cardsDataArray)
             
         return cardsDataArray
     }
