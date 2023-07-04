@@ -73,7 +73,7 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
         setupScroll()
         setupTabBar()
         title = "Order"
-        print(navigationBarHeight)
+        //print(navigationBarHeight)
         scrollView.delegate = self
         
     }
@@ -120,7 +120,7 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
             make.width.equalToSuperview()
             
             make.height.equalTo(view.safeAreaLayoutGuide.layoutFrame.height - navigationBarHeight - 75)
-            print(navigationBarHeight)
+           
             
         }
     }
@@ -204,8 +204,7 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
             make.leading.equalToSuperview()
             make.top.equalTo(tabBarView.snp.bottom).offset(3)
             make.width.equalTo(view.bounds.width)
-            //                 make.height.equalTo(view.safeAreaLayoutGuide.layoutFrame.height - tabBarView.frame.maxY)
-            //                 }
+
             make.bottom.equalToSuperview()}
         selectedViewController.didMove(toParent: self)
         
@@ -222,7 +221,7 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
         }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
+        //print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y < -88 {
             scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
         } else {

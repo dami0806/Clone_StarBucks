@@ -21,6 +21,7 @@
 		379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */; };
 		379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */; };
 		379ACDE029CEC55D00EA4A21 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDDF29CEC55D00EA4A21 /* OtherViewController.swift */; };
+		379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C05632A53DC75008DF195 /* AllManuTableViewCell.swift */; };
 		37A61D6E2A4C23D600DD2476 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D6D2A4C23D600DD2476 /* Color.swift */; };
 		37A61D712A4C2A2300DD2476 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D702A4C2A2300DD2476 /* SnapKit */; };
 		37A61D742A4C2A3E00DD2476 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 37A61D732A4C2A3E00DD2476 /* RxCocoa */; };
@@ -49,6 +50,7 @@
 		379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		379ACDDF29CEC55D00EA4A21 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		379C05632A53DC75008DF195 /* AllManuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllManuTableViewCell.swift; sourceTree = "<group>"; };
 		37A61D6D2A4C23D600DD2476 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		37A61D792A4D6F6400DD2476 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				378529E82A4ED407003431EA /* AllMenuViewController.swift */,
 				378529EA2A4ED413003431EA /* MyMenuViewController.swift */,
 				378529EC2A4ED424003431EA /* HallCakeViewController.swift */,
+				379C05632A53DC75008DF195 /* AllManuTableViewCell.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */,
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,

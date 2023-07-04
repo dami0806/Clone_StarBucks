@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 class AllMenuViewController: UIViewController {
-    
+    let dataManager = DataManager()
+    var drinksDataArray: [Drinks] = []
     
     
     let items = ["음료", "푸드", "상품"]
@@ -38,6 +39,7 @@ class AllMenuViewController: UIViewController {
     }()
     
     
+    
   
     
     override func viewDidLoad() {
@@ -47,6 +49,15 @@ class AllMenuViewController: UIViewController {
         setupTabBar()
         selectTab(at: selectedTabIndex, animated: true)
         setupTableView()
+        tableView.register(AllManuTableViewCell.self, forCellReuseIdentifier: "DrinkCell")
+
+        
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        dataManager.makeDrinksData()// 데이터 초기화
+        drinksDataArray = dataManager.getDrinksData()
+       // print(drinksDataArray)
     }
     
     private func setupdata() {
@@ -115,6 +126,28 @@ class AllMenuViewController: UIViewController {
     
     
 }
+extension AllMenuViewController :UITableViewDataSource,UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return drinksDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
+       
+        cell.image.image = drinksDataArray[indexPath.row].drinkImage
+        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
+        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
+        
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+  
+}
+
 import SwiftUI
 struct VCPreViewAllMenuViewController:PreviewProvider {
     static var previews: some View {
