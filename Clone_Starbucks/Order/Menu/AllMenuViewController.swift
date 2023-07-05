@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 class AllMenuViewController: UIViewController {
     weak var orderViewController: OrderViewController?
-    let dataManager = DataManager()
-    var drinksDataArray: [Drinks] = []
+//    let dataManager = DataManager()
+//    var drinksDataArray: [Drinks] = []
     
     
     let items = ["음료", "푸드", "상품"]
@@ -54,12 +54,6 @@ class AllMenuViewController: UIViewController {
         setupTableView()
         tableView.register(AllManuTableViewCell.self, forCellReuseIdentifier: "DrinkCell")
 
-        
-//      
-//        dataManager.makeDrinksData()// 데이터 초기화
-//        drinksDataArray = dataManager.getDrinksData()
-       // print(drinksDataArray)
-        //orderViewController?.scrollView.delegate = self
         if let orderViewController = parent as? OrderViewController {
                     tableView.delegate = orderViewController
                 }

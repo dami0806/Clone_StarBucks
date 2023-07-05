@@ -39,13 +39,13 @@ class OrderViewController: UIViewController {
         view.layer.shadowOpacity = 0.5
         view.layer.shadowOffset = CGSize(width: 0, height: 1.5)
         view.layer.shadowRadius = 1.5
-
+        
         view.layer.masksToBounds = false
-
+        
         // 그림자가 보일 영역을 설정
-
+        
         let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 50-3, width: self.view.bounds.width , height: 3))
-            view.layer.shadowPath = shadowPath.cgPath
+        view.layer.shadowPath = shadowPath.cgPath
         return view
     }()
     
@@ -68,11 +68,11 @@ class OrderViewController: UIViewController {
         selectTab(at: 0, animated: false)
         setNaviItem()
         
-          dataManager.makeDrinksData()// 데이터 초기화
-          drinksDataArray = dataManager.getDrinksData()
+        dataManager.makeDrinksData()// 데이터 초기화
+        drinksDataArray = dataManager.getDrinksData()
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScroll()
@@ -81,34 +81,34 @@ class OrderViewController: UIViewController {
         //print(navigationBarHeight)
         scrollView.delegate = self
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
-                  allMenuViewController.tableView.delegate = self
+            allMenuViewController.tableView.delegate = self
             allMenuViewController.tableView.dataSource = self
-              }
+        }
         
     }
     private func setNaviItem() {
         // 네비게이션 바 스타일을 설정
         navigationController?.navigationBar.barStyle = .default
-
+        
         // 네비게이션 바 배경색을 흰색으로 설정
         navigationController?.navigationBar.barTintColor = .white
-
+        
         // 네비게이션 바의 텍스트 컬러를 흰색으로 설정
         navigationController?.navigationBar.tintColor = .black
-
+        
         // 네비게이션 바의 타이틀 텍스트 속성을 설정
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]
         //네비게이션 바의 그림자 없애기
         navigationController?.navigationBar.shadowImage = UIImage()
-       
-
+        
+        
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
         searchButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         navigationItem.rightBarButtonItem = searchButton
     }
-
+    
     @objc func searchButtonTapped() {
         // 돋보기 버튼이 탭되었을 때의 동작 처리
     }
@@ -129,7 +129,7 @@ class OrderViewController: UIViewController {
             make.width.equalToSuperview()
             
             make.height.equalTo(view.safeAreaLayoutGuide.layoutFrame.height - navigationBarHeight - 75)
-           
+            
             
         }
     }
@@ -213,7 +213,7 @@ class OrderViewController: UIViewController {
             make.leading.equalToSuperview()
             make.top.equalTo(tabBarView.snp.bottom).offset(3)
             make.width.equalTo(view.bounds.width)
-
+            
             make.bottom.equalToSuperview()}
         selectedViewController.didMove(toParent: self)
         
@@ -229,7 +229,7 @@ class OrderViewController: UIViewController {
             make.centerX.equalTo(tabBarButtons[index])
         }
     }
-   
+    
 }
 extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -238,7 +238,7 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
-       
+        
         cell.image.image = drinksDataArray[indexPath.row].drinkImage
         cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
         cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
@@ -250,29 +250,36 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
         return 90
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < -88 {
-            scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
-
-            // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
-            if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
-                allMenuViewController.tableView.isScrollEnabled = false
+        if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
+            var tableView = allMenuViewController.tableView
+            
+            if scrollView.contentOffset.y < -88 {
+                scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
+                
+                // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
+                
+               tableView.isScrollEnabled = false
                 print(scrollView.contentOffset.y)
-                print(allMenuViewController.tableView.contentOffset.y)
-            }
-        } else {
-            scrollView.bounces = false // 스크롤을 아래로 내릴 때 바운스 비활성화
-
-            // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
-            if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
-                allMenuViewController.tableView.isScrollEnabled = true
-                if allMenuViewController.tableView.contentOffset.y > 0{
-                    allMenuViewController.tableView.bounces = true
-                }else {
-                    allMenuViewController.tableView.bounces = false
+                print(tableView.contentOffset.y)
+                
+            } else {
+                
+                scrollView.bounces = false // 스크롤을 아래로 내릴 때 바운스 비활성화
+                
+                // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
+                
+                tableView.isScrollEnabled = true
+                
+                if tableView.contentOffset.y > 0{
+                    tableView.bounces = true
+                }  else {
+                    tableView.bounces = false
                 }
                 print(scrollView.contentOffset.y)
-                print(allMenuViewController.tableView.contentOffset.y)
+                print(tableView.contentOffset.y)
+                
             }
+            
         }
     }
 }
