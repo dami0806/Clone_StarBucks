@@ -9,10 +9,12 @@ import UIKit
 import SnapKit
 import RxSwift
 
-class OrderViewController: UIViewController,UIScrollViewDelegate {
+class OrderViewController: UIViewController {
     var navigationBarHeight: CGFloat = 0 // 기본값을 0으로 설정합니다.
+    let dataManager = DataManager()
+    var drinksDataArray: [Drinks] = []
     
-    private lazy var scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
         //scrollView.bounces = false
@@ -65,6 +67,9 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
         
         selectTab(at: 0, animated: false)
         setNaviItem()
+        
+          dataManager.makeDrinksData()// 데이터 초기화
+          drinksDataArray = dataManager.getDrinksData()
     }
     
 
@@ -75,6 +80,10 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
         title = "Order"
         //print(navigationBarHeight)
         scrollView.delegate = self
+        if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
+                  allMenuViewController.tableView.delegate = self
+            allMenuViewController.tableView.dataSource = self
+              }
         
     }
     private func setNaviItem() {
@@ -220,12 +229,50 @@ class OrderViewController: UIViewController,UIScrollViewDelegate {
             make.centerX.equalTo(tabBarButtons[index])
         }
     }
+   
+}
+extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return drinksDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
+       
+        cell.image.image = drinksDataArray[indexPath.row].drinkImage
+        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
+        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
+        
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y < -88 {
             scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
+
+            // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
+            if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
+                allMenuViewController.tableView.isScrollEnabled = false
+                print(scrollView.contentOffset.y)
+                print(allMenuViewController.tableView.contentOffset.y)
+            }
         } else {
             scrollView.bounces = false // 스크롤을 아래로 내릴 때 바운스 비활성화
+
+            // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
+            if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
+                allMenuViewController.tableView.isScrollEnabled = true
+                if allMenuViewController.tableView.contentOffset.y > 0{
+                    allMenuViewController.tableView.bounces = true
+                }else {
+                    allMenuViewController.tableView.bounces = false
+                }
+                print(scrollView.contentOffset.y)
+                print(allMenuViewController.tableView.contentOffset.y)
+            }
         }
     }
 }

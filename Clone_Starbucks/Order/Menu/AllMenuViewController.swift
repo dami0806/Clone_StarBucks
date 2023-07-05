@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 class AllMenuViewController: UIViewController {
+    weak var orderViewController: OrderViewController?
     let dataManager = DataManager()
     var drinksDataArray: [Drinks] = []
     
@@ -33,8 +34,10 @@ class AllMenuViewController: UIViewController {
         return view
     }()
  
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.bounces = false
+        tableView.isScrollEnabled = false
            return tableView
     }()
     
@@ -52,12 +55,14 @@ class AllMenuViewController: UIViewController {
         tableView.register(AllManuTableViewCell.self, forCellReuseIdentifier: "DrinkCell")
 
         
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        dataManager.makeDrinksData()// 데이터 초기화
-        drinksDataArray = dataManager.getDrinksData()
+//      
+//        dataManager.makeDrinksData()// 데이터 초기화
+//        drinksDataArray = dataManager.getDrinksData()
        // print(drinksDataArray)
+        //orderViewController?.scrollView.delegate = self
+        if let orderViewController = parent as? OrderViewController {
+                    tableView.delegate = orderViewController
+                }
     }
     
     private func setupdata() {
@@ -126,27 +131,38 @@ class AllMenuViewController: UIViewController {
     
     
 }
-extension AllMenuViewController :UITableViewDataSource,UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return drinksDataArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
-       
-        cell.image.image = drinksDataArray[indexPath.row].drinkImage
-        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
-        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
-        
-        
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
+//extension AllMenuViewController :UITableViewDataSource,UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return drinksDataArray.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
+//       
+//        cell.image.image = drinksDataArray[indexPath.row].drinkImage
+//        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
+//        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
+//        
+//        
+//        return cell
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 90
+//    }
     
   
+//}
+extension AllMenuViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//       // print(scrollView.contentOffset.y)
+//        if scrollView.contentOffset.y<0{
+//            print("orderView가 올라갈것")
+//            orderViewController?.scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentOffset.y), animated: true)
+//
+//        }
+    }
 }
+
 
 import SwiftUI
 struct VCPreViewAllMenuViewController:PreviewProvider {
