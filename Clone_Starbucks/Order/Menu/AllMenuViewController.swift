@@ -16,6 +16,8 @@ class AllMenuViewController: UIViewController {
     let items = ["음료", "푸드", "상품"]
     var tabBarButtons = [UIButton]()
     var selectedTabIndex = 0
+    var didSelectTab: ((Int) -> Void)?
+    var dataReceivedHandler:((Int) -> Void)?
     
     private lazy var tabBarView: UIView = {
         let view = UIView()
@@ -108,6 +110,8 @@ class AllMenuViewController: UIViewController {
     @objc private func tabBarButtonTapped(_ sender: UIButton) {
         guard let buttonIndex = tabBarButtons.firstIndex(of: sender) else { return }
         selectTab(at: buttonIndex, animated: true)
+        let data = buttonIndex
+              dataReceivedHandler?(data)
     }
     
     private func selectTab(at index: Int, animated: Bool) {
@@ -121,39 +125,17 @@ class AllMenuViewController: UIViewController {
         
        
         view.bringSubviewToFront(tabBarView) // 탭바를 뷰컨트롤러 위로 올림
+        didSelectTab?(selectedTabIndex)
+
     }
     
     
 }
-//extension AllMenuViewController :UITableViewDataSource,UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return drinksDataArray.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
-//       
-//        cell.image.image = drinksDataArray[indexPath.row].drinkImage
-//        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
-//        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
-//        
-//        
-//        return cell
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 90
-//    }
-    
-  
+
 //}
 extension AllMenuViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//       // print(scrollView.contentOffset.y)
-//        if scrollView.contentOffset.y<0{
-//            print("orderView가 올라갈것")
-//            orderViewController?.scrollView.setContentOffset(CGPoint(x: 0, y: -scrollView.contentOffset.y), animated: true)
-//
-//        }
+
     }
 }
 

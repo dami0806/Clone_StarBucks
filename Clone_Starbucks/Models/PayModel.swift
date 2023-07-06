@@ -23,3 +23,26 @@ struct Cards{
     var cardNum: String
     
 }
+struct Foods{
+    let foodsImage: UIImage
+    let foodsKo: String
+    let foodsEn: String
+    let detail: String
+    let price: Int
+  
+    
+}
+struct Goods{
+    let kindImage: UIImage
+    let kindKo: String
+    let kindEn: String
+
+    
+}
+struct DetailGoods{
+    let goodsImage: UIImage
+    let goodsKo: String
+    let goodsEn: String
+    let detail: String
+    let price: Int
+}

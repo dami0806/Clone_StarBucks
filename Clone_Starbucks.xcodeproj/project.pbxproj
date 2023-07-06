@@ -31,6 +31,7 @@
 		37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */; };
 		37A61D802A4D780600DD2476 /* PayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7F2A4D780600DD2476 /* PayModel.swift */; };
 		37CFF37C2A4F526000BC154F /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFF37B2A4F526000BC154F /* PreView.swift */; };
+		37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		37A61D7F2A4D780600DD2476 /* PayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayModel.swift; sourceTree = "<group>"; };
 		37CFF37B2A4F526000BC154F /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
+		37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				378529E72A4ED3B9003431EA /* Kind */,
 				378529E62A4ED3A7003431EA /* Menu */,
 				379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */,
+				37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
 				37A61D802A4D780600DD2476 /* PayModel.swift in Sources */,
 				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
+				37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
 				37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */,
 				377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */,

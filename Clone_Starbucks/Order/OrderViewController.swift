@@ -13,6 +13,10 @@ class OrderViewController: UIViewController {
     var navigationBarHeight: CGFloat = 0 // 기본값을 0으로 설정합니다.
     let dataManager = DataManager()
     var drinksDataArray: [Drinks] = []
+    var foodsDataArray: [Foods] = []
+    var goodsDataArray: [Goods] = []
+
+    var allMenuIndex : Int = 0
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -70,6 +74,10 @@ class OrderViewController: UIViewController {
         
         dataManager.makeDrinksData()// 데이터 초기화
         drinksDataArray = dataManager.getDrinksData()
+        dataManager.makeFoodsData()
+        foodsDataArray = dataManager.getFoodsData()
+        dataManager.makeGoodsData()
+        goodsDataArray = dataManager.getGoodsData()
     }
     
     
@@ -83,9 +91,20 @@ class OrderViewController: UIViewController {
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
             allMenuViewController.tableView.delegate = self
             allMenuViewController.tableView.dataSource = self
+            allMenuViewController.dataReceivedHandler = { [weak self] data in
+                self?.handleDataReceived(data)}
         }
+       
         
     }
+    func handleDataReceived(_ data: Int) {
+        allMenuIndex = data
+        print("1:\(allMenuIndex)")
+        if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
+            allMenuViewController.tableView.reloadData()
+        }
+          
+       }
     private func setNaviItem() {
         // 네비게이션 바 스타일을 설정
         navigationController?.navigationBar.barStyle = .default
@@ -233,25 +252,62 @@ class OrderViewController: UIViewController {
 }
 extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return drinksDataArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
-        
-        cell.image.image = drinksDataArray[indexPath.row].drinkImage
-        cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
-        cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
-        
-        
-        return cell
-    }
+         if allMenuIndex == 0 {
+             return drinksDataArray.count
+         } else if allMenuIndex == 1 {
+             return foodsDataArray.count
+         } else {
+             return goodsDataArray.count
+         }
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! AllManuTableViewCell
+       print("2:\(allMenuIndex)")
+      
+         switch allMenuIndex {
+         case 0:
+             cell.image.image = drinksDataArray[indexPath.row].drinkImage
+             cell.nameKo.text = drinksDataArray[indexPath.row].drinkKo
+             cell.nameEn.text = drinksDataArray[indexPath.row].drinkEn
+         case 1:
+             cell.image.image = foodsDataArray[indexPath.row].foodsImage
+             cell.nameKo.text = foodsDataArray[indexPath.row].foodsKo
+             cell.nameEn.text = foodsDataArray[indexPath.row].foodsEn
+         default:
+             cell.image.image = goodsDataArray[indexPath.row].kindImage
+             cell.nameKo.text = goodsDataArray[indexPath.row].kindKo
+             cell.nameEn.text = goodsDataArray[indexPath.row].kindEn
+             break
+         }
+       
+         cell.selectionStyle = .none
+         
+         return cell
+     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        let detailVC = DetailKindViewController()
+        switch allMenuIndex {
+        case 0:
+        detailVC.drinksData = drinksDataArray[indexPath.row]
+      
+        case 1:
+            detailVC.foodsData = foodsDataArray[indexPath.row]
+        default:
+            detailVC.goodsData = goodsDataArray[indexPath.row]
+            break
+        }
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+        
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
-            var tableView = allMenuViewController.tableView
+            let tableView = allMenuViewController.tableView
             
             if scrollView.contentOffset.y < -88 {
                 scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
@@ -259,8 +315,7 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
                 // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
                 
                tableView.isScrollEnabled = false
-                print(scrollView.contentOffset.y)
-                print(tableView.contentOffset.y)
+
                 
             } else {
                 
@@ -275,8 +330,8 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
                 }  else {
                     tableView.bounces = false
                 }
-                print(scrollView.contentOffset.y)
-                print(tableView.contentOffset.y)
+//                print(scrollView.contentOffset.y)
+//                print(tableView.contentOffset.y)
                 
             }
             
