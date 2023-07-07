@@ -170,15 +170,17 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         if scrollView.contentOffset.y > previousContentOffset.y { // 스크롤이 내려갔을 때 작아짐
             deliverView.snp.updateConstraints { make in
                 make.width.equalTo(deliverViewHeight)
+            
             }
             
             stackView.snp.remakeConstraints { make in
-                make.edges.equalTo(deliverView).inset(10)
+                //make.edges.equalTo(deliverView).inset(10)
+                make.center.equalTo(deliverView.snp.center)
                 
             }
             deliverImage.snp.remakeConstraints{make in
                 make.width.height.equalTo(deliverViewHeight-20)
-                make.center.equalTo(deliverView.snp.center)
+               // make.center.equalTo(deliverView.snp.center)
                 
                 
             }
@@ -190,9 +192,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
                 make.width.equalTo(deliverViewWeight)
             }
             stackView.snp.remakeConstraints { make in
-                make.top.bottom.equalTo(deliverView).inset(10)
-                make.leading.trailing.equalTo(deliverView).inset(30)
-
+                //make.top.bottom.equalTo(deliverView).inset(10)
+                //make.leading.trailing.equalTo(deliverView).inset(30)
+                make.center.equalTo(deliverView.snp.center)
             }
             
             deliverImage.snp.remakeConstraints{make in
