@@ -94,6 +94,9 @@ class OrderViewController: UIViewController {
             allMenuViewController.dataReceivedHandler = { [weak self] data in
                 self?.handleDataReceived(data)}
         }
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .gray
+        self.navigationItem.backBarButtonItem = backBarButtonItem
        
         
     }
@@ -291,14 +294,18 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let detailVC = DetailKindViewController()
+        detailVC.allMenuIndex = allMenuIndex
+        
         switch allMenuIndex {
         case 0:
         detailVC.drinksData = drinksDataArray[indexPath.row]
-      
+        detailVC.titleString = drinksDataArray[indexPath.row].drinkKo
         case 1:
             detailVC.foodsData = foodsDataArray[indexPath.row]
+            detailVC.titleString = foodsDataArray[indexPath.row].foodsKo
         default:
             detailVC.goodsData = goodsDataArray[indexPath.row]
+            detailVC.titleString = goodsDataArray[indexPath.row].kindKo
             break
         }
         navigationController?.pushViewController(detailVC, animated: true)

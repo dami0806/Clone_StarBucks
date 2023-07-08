@@ -22,8 +22,8 @@ class DataManager {
     }
     
     func getCardData() -> [Cards] {
-       // print(cardsDataArray)
-            
+        // print(cardsDataArray)
+        
         return cardsDataArray
     }
     
@@ -31,19 +31,20 @@ class DataManager {
     
     func makeDrinksData() {
         drinksDataArray = [
-            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
-            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
-            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
-            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "추천", drinkEn: "Recommend", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "추천", drinkEn: "Recommend", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "추천", drinkEn: "Recommend", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "추천", drinkEn: "Recommend", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
             Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
             Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true)]
     }
     
     func getDrinksData() -> [Drinks] {
-       // print(cardsDataArray)
-            
+        // print(cardsDataArray)
+        
         return drinksDataArray
     }
+    
     
     //
     private var foodsDataArray: [Foods] = []
@@ -59,12 +60,12 @@ class DataManager {
             Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
             Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
             Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800)
-
+            
         ]
     }
     
     func getFoodsData() -> [Foods] {
-
+        
         return foodsDataArray
     }
     
@@ -80,12 +81,32 @@ class DataManager {
                           Goods(kindImage: UIImage(named: "패키지티")!, kindKo: "패키지 티", kindEn: "Packaged Tea"),
                           Goods(kindImage: UIImage(named: "패키지티")!, kindKo: "패키지 티", kindEn: "Packaged Tea")
                           
-                                                                     
-           ]
+                          
+        ]
     }
     
     func getGoodsData() -> [Goods] {
-
+        
         return goodsDataArray
     }
+    
+    //디테일
+    private var detailDrinksDataArray: [Drinks] = []
+    
+    func makeDetailDrinksData() {
+        detailDrinksDataArray = [
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),
+            Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true),  Drinks(drinkImage: UIImage(named: "음료")!, drinkKo: "리저브 콜드 브루", drinkEn: "Reserve Cold Brew", detail: "리저브 커피 마스터의 정성으로 차갑게 추출한 깊고 부드러운 풍미의 커피", price: 0, ice: true)]
+    }
+    
+    func getDetailDrinksData() -> [Drinks] {
+        // print(cardsDataArray)
+        
+        return detailDrinksDataArray
+    }
+    
 }

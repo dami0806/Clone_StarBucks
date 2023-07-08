@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */; };
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
 		378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529E82A4ED407003431EA /* AllMenuViewController.swift */; };
 		378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EA2A4ED413003431EA /* MyMenuViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindTableViewCell.swift; sourceTree = "<group>"; };
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		378529E82A4ED407003431EA /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
 		378529EA2A4ED413003431EA /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				378529E62A4ED3A7003431EA /* Menu */,
 				379ACDDB29CEC53D00EA4A21 /* OrderViewController.swift */,
 				37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */,
+				3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
+				3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */,
 				378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */,
 				379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */,
 				37A61D7A2A4D6F6400DD2476 /* UIViewController.swift in Sources */,
