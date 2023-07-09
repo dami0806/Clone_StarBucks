@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */; };
+		3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */; };
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
 		378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529E82A4ED407003431EA /* AllMenuViewController.swift */; };
 		378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EA2A4ED413003431EA /* MyMenuViewController.swift */; };
@@ -33,10 +34,14 @@
 		37A61D802A4D780600DD2476 /* PayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7F2A4D780600DD2476 /* PayModel.swift */; };
 		37CFF37C2A4F526000BC154F /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFF37B2A4F526000BC154F /* PreView.swift */; };
 		37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */; };
+		37F81F8C2A5AFA9600B8345A /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F81F8B2A5AFA9600B8345A /* ShopCollectionViewCell.swift */; };
+		37F81F8E2A5AFC1400B8345A /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F81F8D2A5AFC1400B8345A /* ShopModel.swift */; };
+		37F81F902A5AFCD200B8345A /* ShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindTableViewCell.swift; sourceTree = "<group>"; };
+		3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuViewController.swift; sourceTree = "<group>"; };
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		378529E82A4ED407003431EA /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
 		378529EA2A4ED413003431EA /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		37A61D7F2A4D780600DD2476 /* PayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayModel.swift; sourceTree = "<group>"; };
 		37CFF37B2A4F526000BC154F /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
 		37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindViewController.swift; sourceTree = "<group>"; };
+		37F81F8B2A5AFA9600B8345A /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
+		37F81F8D2A5AFC1400B8345A /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 				378529EA2A4ED413003431EA /* MyMenuViewController.swift */,
 				378529EC2A4ED424003431EA /* HallCakeViewController.swift */,
 				379C05632A53DC75008DF195 /* AllManuTableViewCell.swift */,
+				3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */,
+				37F81F8B2A5AFA9600B8345A /* ShopCollectionViewCell.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -191,6 +201,8 @@
 			children = (
 				37A61D7F2A4D780600DD2476 /* PayModel.swift */,
 				377CD2DC2A4DB9D400778DAB /* DataManager.swift */,
+				37F81F8D2A5AFC1400B8345A /* ShopModel.swift */,
+				37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,15 +293,19 @@
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
 				3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */,
 				378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */,
+				37F81F8E2A5AFC1400B8345A /* ShopModel.swift in Sources */,
 				379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */,
 				37A61D7A2A4D6F6400DD2476 /* UIViewController.swift in Sources */,
 				379ACDD829CEC4BE00EA4A21 /* HomeViewController.swift in Sources */,
 				379ACDE029CEC55D00EA4A21 /* OtherViewController.swift in Sources */,
 				379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */,
+				3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */,
 				37CFF37C2A4F526000BC154F /* PreView.swift in Sources */,
 				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
+				37F81F902A5AFCD200B8345A /* ShopDataManager.swift in Sources */,
 				37A61D802A4D780600DD2476 /* PayModel.swift in Sources */,
 				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
+				37F81F8C2A5AFA9600B8345A /* ShopCollectionViewCell.swift in Sources */,
 				37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
 				37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */,
