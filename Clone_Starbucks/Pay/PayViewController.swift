@@ -73,7 +73,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         makeUI()
         self.scrollView.delegate = self
         title = "Pay"
-        changeTitleMode()
+        changeTitleMode(fontSize: 32)
         dataManager.makeCardsData() // 데이터 초기화
         cardsDataArray = dataManager.getCardData()
         

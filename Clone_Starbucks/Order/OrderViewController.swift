@@ -142,7 +142,7 @@ class OrderViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        changeTitleMode()
+        changeTitleMode(fontSize: 32)
         if navigationItem.largeTitleDisplayMode == .always {
             navigationBarHeight = navigationController?.navigationBar.bounds.height ?? 0
         }

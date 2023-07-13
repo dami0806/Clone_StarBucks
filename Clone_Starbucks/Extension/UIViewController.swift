@@ -8,10 +8,12 @@
 import Foundation
 import UIKit
 extension UIViewController {
-    func changeTitleMode() {
+    func changeTitleMode(fontSize: Int) {
         if let scrollView = self.view.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView {
             self.navigationController?.navigationBar.prefersLargeTitles = true
-            //print(scrollView.contentOffset.y)
+            navigationController?.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)) // 원하는 크기로 설정
+                    ]
            
             if scrollView.contentOffset.y > 0 {
                 navigationItem.largeTitleDisplayMode = .never

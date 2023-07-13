@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373066222A5FC70C00828014 /* ShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373066212A5FC70C00828014 /* ShopTableViewCell.swift */; };
+		373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373066232A5FC72000828014 /* ShopCollectionViewCell.swift */; };
 		3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */; };
 		3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */; };
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		373066212A5FC70C00828014 /* ShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewCell.swift; sourceTree = "<group>"; };
+		373066232A5FC72000828014 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindTableViewCell.swift; sourceTree = "<group>"; };
 		3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuViewController.swift; sourceTree = "<group>"; };
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */,
+				373066212A5FC70C00828014 /* ShopTableViewCell.swift */,
+				373066232A5FC72000828014 /* ShopCollectionViewCell.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			files = (
 				379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */,
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
+				373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
 				3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */,
@@ -299,6 +306,7 @@
 				3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */,
 				37CFF37C2A4F526000BC154F /* PreView.swift in Sources */,
 				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
+				373066222A5FC70C00828014 /* ShopTableViewCell.swift in Sources */,
 				37F81F902A5AFCD200B8345A /* ShopDataManager.swift in Sources */,
 				37A61D802A4D780600DD2476 /* PayModel.swift in Sources */,
 				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
