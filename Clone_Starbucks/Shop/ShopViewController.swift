@@ -25,7 +25,7 @@ class ShopViewController: UIViewController {
         setupConstraints()
         dataManager.makeCardsData()
         shopsDataArray = dataManager.getShopData()
-        print(shopsDataArray)
+      //  print(shopsDataArray)
         title = "Starbucks OnlineStore"
         changeTitleMode(fontSize: 28)
         setNaviItem()
@@ -50,10 +50,7 @@ class ShopViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]
-        //        //네비게이션 바의 그림자 없애기
-        //        navigationController?.navigationBar.shadowImage = UIImage()
-        //        //뒤로가기 아이템
-        //        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+   
     }
     
     private func setupViews(){

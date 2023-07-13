@@ -10,50 +10,76 @@ import RxCocoa
 import RxSwift
 
 //MARK: -ShopAddProductsTableViewCell
-class ShopAddTableViewCell: UITableViewCell {
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-       
-        return collectionView
-    }()
+class ShopAddTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private let collectionView: UICollectionView
+    
+    private let dummySubData = [
+        ["SubImage1", "SubText1"],
+        ["SubImage2", "SubText2"],
+        ["SubImage3", "SubText3"],
+        ["SubImage4", "SubText4"],
+        ["SubImage5", "SubText5"],
+        ["SubImage6", "SubText6"],
+        ["SubImage7", "SubText7"],
+        ["SubImage8", "SubText8"],
+        ["SubImage9", "SubText9"],
+        ["SubImage10", "SubText10"]
+    ]
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
-        setupCollectionView()
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        collectionView.reloadData()
+        setupViews()
+        setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupCollectionView(){
-        collectionView.delegate = self
+    private func setupViews() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
         collectionView.dataSource = self
-        collectionView.register(ShopAddCollectionViewCell.self, forCellWithReuseIdentifier: "ShopAddCollectionViewCell")
-        addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-    }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        collectionView.delegate = self
+        collectionView.register(SubShopCollectionViewCell.self, forCellWithReuseIdentifier: "SubShopCollectionViewCell")
+        contentView.addSubview(collectionView)
         
     }
     
-}
-extension ShopAddTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    private func setupConstraints() {
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            
+        }
     }
+    
+    func configure(image: String, text: String) {
+        // 이미지와 텍스트를 설정하여 셀을 구성
+    }
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dummySubData.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopAddCollectionViewCell", for: indexPath) as! ShopAddCollectionViewCell
-        
-        
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubShopCollectionViewCell", for: indexPath) as! SubShopCollectionViewCell
+        let data = dummySubData[indexPath.item]
+        cell.configure(image: data[0], text: data[1])
         return cell
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
     }
 }
 
@@ -78,7 +104,9 @@ class ShopAllProductsTableViewCell: UITableViewCell {
     private func setupCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(ShopAllProductCollectionViewCell.self, forCellWithReuseIdentifier: "ShopAllProductCollectionViewCell")
+        collectionView.register(ShopAllProductCollectionViewCell.self, forCellWithReuseIdentifier: "ShopAllProductsCollectionViewCell")
+
+        
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -99,6 +127,7 @@ extension  ShopAllProductsTableViewCell: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopAllProductCollectionViewCell", for: indexPath) as! ShopAllProductCollectionViewCell
+        
         return cell
     }
     

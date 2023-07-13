@@ -52,7 +52,7 @@ class ShopDataManager{
     }
     
     func getShopData() -> [ShopSection] {
-        // print(cardsDataArray)
+       
         
         return shopDataArray
     }
