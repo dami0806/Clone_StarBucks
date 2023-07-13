@@ -28,7 +28,7 @@ class ShopViewController: UIViewController {
         print(shopsDataArray)
         title = "Starbucks OnlineStore"
         changeTitleMode(fontSize: 28)
-        
+        setNaviItem()
         
         
         
@@ -59,8 +59,15 @@ class ShopViewController: UIViewController {
     private func setupViews(){
         shopTableView.dataSource = self
         shopTableView.delegate = self
-        shopTableView.register(ShopTableViewCell.self, forCellReuseIdentifier: "ShopTableViewCell")
+        
+        shopTableView.register(ShopAddTableViewCell.self, forCellReuseIdentifier: "ShopAddTableViewCell")
+        shopTableView.register(ShopAllProductsTableViewCell.self, forCellReuseIdentifier: "ShopAllProductsTableViewCell")
+        shopTableView.register(ShopMobileGiftsTableViewCell.self, forCellReuseIdentifier: "ShopMobileGiftsTableViewCell")
+        shopTableView.register(ShopBestItemsTableViewCell.self, forCellReuseIdentifier: "ShopBestItemsTableViewCell")
+        
         shopTableView.register(ShopTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ShopTableHeaderView")
+        
+        
         view.addSubview(shopTableView)
     }
     private func setupConstraints(){
@@ -77,9 +84,34 @@ extension ShopViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopTableViewCell", for: indexPath) as! ShopTableViewCell
-        return cell
-    }
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopTableViewCell", for: indexPath) as! ShopTableViewCell
+        //        return cell
+        if indexPath.section == 0 {
+            // 섹션 0의 셀을 반환 (ShopAddTableViewCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopAddTableViewCell", for: indexPath) as! ShopAddTableViewCell
+            // cell에 필요한 설정 작업 수행
+            return cell
+        } else if indexPath.section == 1{
+            // 섹션 1의 셀을 반환 (ShopAllProductsTableViewCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopAllProductsTableViewCell", for: indexPath) as! ShopAllProductsTableViewCell
+            // cell에 필요한 설정 작업 수행
+            return cell
+        }
+        else if indexPath.section == 2{
+            // 섹션 1의 셀을 반환 (ShopAllProductsTableViewCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopMobileGiftsTableViewCell", for: indexPath) as! ShopMobileGiftsTableViewCell
+            // cell에 필요한 설정 작업 수행
+            return cell
+        }
+        else {
+            // 섹션 1의 셀을 반환 (ShopAllProductsTableViewCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopBestItemsTableViewCell", for: indexPath) as! ShopBestItemsTableViewCell
+            // cell에 필요한 설정 작업 수행
+            return cell
+        }
+    
+}
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return shopsDataArray.count
