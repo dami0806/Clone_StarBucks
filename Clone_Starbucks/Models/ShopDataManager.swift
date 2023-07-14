@@ -11,38 +11,37 @@ import UIKit
 class ShopDataManager{
     private var shopDataArray: [ShopSection] = []
     
-    func makeCardsData() {
+    func makeShopData() {
         shopDataArray = [
                 ShopSection(headerTitle: nil, headerButtonTitle: nil, items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 4"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 5")
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 1"),
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 2"),
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 3"),
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 4"),
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 5"),
+                    ShopItem(image: UIImage(named: "add1"), text: "Item 5")
                 ]),
-                ShopSection(headerTitle: "Section 1 Header", headerButtonTitle: "Button", items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 4"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 5"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 6"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 7"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 8"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 9"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 10")
+                ShopSection(headerTitle: "All Products", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
+                    ShopItem(image: UIImage(named: "음료"), text: "케이크"),
+                    ShopItem(image: UIImage(named: "음료"), text: "텀플러/보온병"),
+                    ShopItem(image: UIImage(named: "음료"), text: "머그/컵"),
+                    ShopItem(image: UIImage(named: "음료"), text: "라이프스타일"),
+                    ShopItem(image: UIImage(named: "음료"), text: "티/커피용품"),
+                    ShopItem(image: UIImage(named: "음료"), text: "세트"),
+                    ShopItem(image: UIImage(named: "음료"), text: "스낵")
+                 
                 ]),
-                ShopSection(headerTitle: "Section 2 Header", headerButtonTitle: "Button", items: [
+                ShopSection(headerTitle: "Mobile Gifts", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
                     ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 2")
                 ]),
-                ShopSection(headerTitle: "Section 3 Header", headerButtonTitle: "Button", items: [
+                ShopSection(headerTitle: "Best Items", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
                     ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 4")
                 ]),
-                ShopSection(headerTitle: "Section 4 Header", headerButtonTitle: "Button", items: [
+                ShopSection(headerTitle: "New Products", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
                     ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
                     ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
@@ -59,3 +58,4 @@ class ShopDataManager{
     
     
 }
+

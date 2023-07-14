@@ -14,6 +14,6 @@ struct ShopItem{
 }
 struct ShopSection{
     let headerTitle :String?
-    let headerButtonTitle: String?
+    let headerButtonTitle:UIImage?
     let items: [ShopItem]
 }

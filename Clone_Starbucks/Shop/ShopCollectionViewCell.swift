@@ -10,90 +10,96 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
-class SubShopCollectionViewCell: UICollectionViewCell {
-    private let imageView = UIImageView()
-    private let label = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupViews()
-        setupConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupViews() {
-        contentView.addSubview(imageView)
-        contentView.addSubview(label)
-    }
-    
-    private func setupConstraints() {
-        imageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(80)
-        }
-        
-        label.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(80)
-        }
-    }
-    
-    func configure(image: String, text: String) {
-        imageView.image = UIImage(named: image)
-        label.text = text
-    }
-}
 
 
 class ShopAddCollectionViewCell: UICollectionViewCell {
     
+    var uiView = UIView()
     lazy var imageView:UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+      
         return imageView
     }()
     override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            setupImageView()
-        }
-
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            
-            setupImageView()
-        }
-    private func setupImageView() {
-         contentView.addSubview(imageView)
-         imageView.snp.makeConstraints { make in
-             make.edges.equalToSuperview()
-         }
-     }
- 
+        super.init(frame: frame)
+        setupImageView()
+    }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupImageView()
+    }
+    private func setupImageView() {
+        contentView.addSubview(uiView)
+        uiView.addSubview(imageView)
+        
+        uiView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        imageView.snp.makeConstraints { make in
+            make.edges.equalTo(uiView)
+        }
+    }
+    func configure(with image: UIImage) {
+        imageView.image = image
+        
+        
+    }
 }
 class ShopAllProductCollectionViewCell: UICollectionViewCell {
+    var uiView = UIView()
+    lazy var imageView:UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+
+        return imageView
+    }()
+     lazy var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        return label
+    }()
     override init(frame: CGRect) {
          super.init(frame: frame)
          
-         setupCell()
+        setupImageView()
+       
      }
      
      required init?(coder: NSCoder) {
          super.init(coder: coder)
          
-         setupCell()
+         setupImageView()
      }
-     
-     private func setupCell() {
-         backgroundColor = .gray
-     }
+    private func setupImageView() {
+        contentView.addSubview(uiView)
+        uiView.addSubview(imageView)
+        uiView.addSubview(label)
+        
+        uiView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalTo(uiView.snp.centerX)
+            make.top.equalTo(uiView.snp.top).inset(5)
+            make.width.height.equalTo(uiView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(imageView.snp.width)
+        }
+        layoutIfNeeded()
+       
+        print(imageView.frame.width)
+            imageView.layer.cornerRadius = imageView.frame.width / 2
+            imageView.clipsToBounds = true
+            
+        label.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(8)
+            make.centerX.equalTo(uiView.snp.centerX)
+
+        }
+    }
+   
  }
 
 

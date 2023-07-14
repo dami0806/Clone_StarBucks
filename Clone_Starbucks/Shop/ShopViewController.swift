@@ -23,14 +23,15 @@ class ShopViewController: UIViewController {
         view.backgroundColor = .green
         setupViews()
         setupConstraints()
-        dataManager.makeCardsData()
+        dataManager.makeShopData()
         shopsDataArray = dataManager.getShopData()
-      //  print(shopsDataArray)
+        //  print(shopsDataArray)
         title = "Starbucks OnlineStore"
         changeTitleMode(fontSize: 28)
         setNaviItem()
+        shopTableView.separatorStyle = .none
         
-        
+      
         
         
     }
@@ -50,7 +51,7 @@ class ShopViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]
-   
+        
     }
     
     private func setupViews(){
@@ -69,11 +70,32 @@ class ShopViewController: UIViewController {
     }
     private func setupConstraints(){
         shopTableView.snp.makeConstraints { make in
+           
             make.edges.equalToSuperview()
         }
         
     }
     
+}
+extension ShopViewController:  UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollY = scrollView.contentOffset.y
+       print(scrollY)
+        if scrollY >= 0 {
+            if #available(iOS 11.0, *) {
+                shopTableView.contentInsetAdjustmentBehavior = .never
+            } else {
+                automaticallyAdjustsScrollViewInsets = false
+            }
+        }
+        else {
+            if #available(iOS 11.0, *) {
+                shopTableView.contentInsetAdjustmentBehavior = .always
+            } else {
+                automaticallyAdjustsScrollViewInsets = true
+            }
+        }
+    }
 }
 extension ShopViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,8 +103,7 @@ extension ShopViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "ShopTableViewCell", for: indexPath) as! ShopTableViewCell
-        //        return cell
+        
         if indexPath.section == 0 {
             // 섹션 0의 셀을 반환 (ShopAddTableViewCell)
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShopAddTableViewCell", for: indexPath) as! ShopAddTableViewCell
@@ -106,8 +127,8 @@ extension ShopViewController: UITableViewDataSource {
             // cell에 필요한 설정 작업 수행
             return cell
         }
-    
-}
+        
+    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -115,6 +136,9 @@ extension ShopViewController: UITableViewDataSource {
     }
     //헤더
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
         return 50
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -126,6 +150,7 @@ extension ShopViewController: UITableViewDataSource {
         
         let title = sectionData.headerTitle
         headerView.configure(title: title ?? "")
+        
         headerView.buttonTapObservable
             .subscribe(onNext: { [weak self] in
                 self?.handleButtonTap(section: section)
@@ -141,7 +166,18 @@ extension ShopViewController: UITableViewDataSource {
 }
 extension ShopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        if indexPath.section == 0 {
+            return tableView.bounds.height * 0.3
+        }
+        else if indexPath.section == 1 {
+            return tableView.bounds.height * 0.2
+        }
+        else if indexPath.section == 2 {
+            return tableView.bounds.height * 0.1
+        }
+        else {
+            return tableView.bounds.height * 0.6
+        }
     }
     
 }
