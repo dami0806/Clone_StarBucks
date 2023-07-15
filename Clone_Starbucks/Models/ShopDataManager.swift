@@ -32,8 +32,8 @@ class ShopDataManager{
                  
                 ]),
                 ShopSection(headerTitle: "Mobile Gifts", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 2")
+                    ShopItem(image: UIImage(named: "giftitem"), text: "Item 1"),
+                    ShopItem(image: UIImage(named: "giftcard"), text: "Item 2")
                 ]),
                 ShopSection(headerTitle: "Best Items", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
                     ShopItem(image: UIImage(named: "음료"), text: "Item 1"),

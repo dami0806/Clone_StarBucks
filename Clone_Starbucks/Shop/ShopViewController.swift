@@ -172,7 +172,7 @@ extension ShopViewController: UITableViewDelegate {
             return tableView.bounds.height * 0.253
         }
         else if indexPath.section == 2 {
-            return tableView.bounds.height * 0.1
+            return tableView.bounds.height * 0.15
         }
         else {
             return tableView.bounds.height * 0.6

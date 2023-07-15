@@ -166,13 +166,16 @@ extension  ShopAllProductsTableViewCell: UICollectionViewDelegate, UICollectionV
 
 //MARK: -ShopMobileGiftsProductsTableViewCell
 class ShopMobileGiftsTableViewCell: UITableViewCell {
+    let shopDataManager = ShopDataManager()
+    var shopDataArray: [ShopSection] = []
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+       
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBlue
         return collectionView
     }()
+    let imageViewArray: [UIImage] = [UIImage(named: "giftcard")!,UIImage(named: "giftitem")!]
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -188,6 +191,8 @@ class ShopMobileGiftsTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.register(ShopMobileGiftsCollectionViewCell.self, forCellWithReuseIdentifier: "ShopMobileGiftsCollectionViewCell")
         addSubview(collectionView)
+        shopDataManager.makeShopData()
+        shopDataArray = shopDataManager.getShopData()
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -199,17 +204,32 @@ class ShopMobileGiftsTableViewCell: UITableViewCell {
     }
     
 }
-extension ShopMobileGiftsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ShopMobileGiftsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return shopDataArray[2].items.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopMobileGiftsCollectionViewCell", for: indexPath) as! ShopMobileGiftsCollectionViewCell
-        
-        
+        let image = shopDataArray[2].items[indexPath.item].image
+        cell.imageView.image = image
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 2.5, bottom: 0, right: 0)
+       }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width / 2
+        let height = collectionView.bounds.height
+            return CGSize(width: width, height: height)
+        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return -5
+    }
+    
 }
 
 //MARK: -ShopBestItemsTableViewCell
