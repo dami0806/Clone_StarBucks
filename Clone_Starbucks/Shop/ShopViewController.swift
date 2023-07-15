@@ -57,7 +57,6 @@ class ShopViewController: UIViewController {
     private func setupViews(){
         shopTableView.dataSource = self
         shopTableView.delegate = self
-        
         shopTableView.register(ShopAddTableViewCell.self, forCellReuseIdentifier: "ShopAddTableViewCell")
         shopTableView.register(ShopAllProductsTableViewCell.self, forCellReuseIdentifier: "ShopAllProductsTableViewCell")
         shopTableView.register(ShopMobileGiftsTableViewCell.self, forCellReuseIdentifier: "ShopMobileGiftsTableViewCell")
@@ -80,7 +79,7 @@ class ShopViewController: UIViewController {
 extension ShopViewController:  UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollY = scrollView.contentOffset.y
-       print(scrollY)
+     
         if scrollY >= 0 {
             if #available(iOS 11.0, *) {
                 shopTableView.contentInsetAdjustmentBehavior = .never
@@ -170,7 +169,7 @@ extension ShopViewController: UITableViewDelegate {
             return tableView.bounds.height * 0.3
         }
         else if indexPath.section == 1 {
-            return tableView.bounds.height * 0.2
+            return tableView.bounds.height * 0.253
         }
         else if indexPath.section == 2 {
             return tableView.bounds.height * 0.1

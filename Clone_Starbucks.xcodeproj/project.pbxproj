@@ -38,6 +38,7 @@
 		37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */; };
 		37F81F8E2A5AFC1400B8345A /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F81F8D2A5AFC1400B8345A /* ShopModel.swift */; };
 		37F81F902A5AFCD200B8345A /* ShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */; };
+		37FD46EA2A6249D400FE9227 /* ShopUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD46E92A6249D400FE9227 /* ShopUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		37F45C0B2A55C7F900B36443 /* DetailKindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindViewController.swift; sourceTree = "<group>"; };
 		37F81F8D2A5AFC1400B8345A /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataManager.swift; sourceTree = "<group>"; };
+		37FD46E92A6249D400FE9227 /* ShopUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				379ACDDD29CEC54D00EA4A21 /* ShopViewController.swift */,
 				373066212A5FC70C00828014 /* ShopTableViewCell.swift */,
 				373066232A5FC72000828014 /* ShopCollectionViewCell.swift */,
+				37FD46E92A6249D400FE9227 /* ShopUIView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
 				37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
+				37FD46EA2A6249D400FE9227 /* ShopUIView.swift in Sources */,
 				37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */,
 				377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */,
 				37A61D6E2A4C23D600DD2476 /* Color.swift in Sources */,
