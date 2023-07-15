@@ -165,19 +165,54 @@ class ShopMobileGiftsCollectionViewCell: UICollectionViewCell {
 }
 //MARK: -ShopBestItemsCollectionViewCell
 class ShopBestItemsCollectionViewCell: UICollectionViewCell {
+    var uiView = UIView()
+    lazy var imageView:UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 5
+        return imageView
+    }()
+    lazy var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.numberOfLines = 2
+        return label
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupImageView()
         
-        setupCell()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        setupCell()
+        setupImageView()
     }
     
-    private func setupCell() {
-        backgroundColor = .red
+    private func setupImageView() {
+        contentView.addSubview(uiView)
+        uiView.addSubview(imageView)
+        uiView.addSubview(label)
+        
+        uiView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalTo(uiView.snp.centerX)
+            make.top.equalTo(uiView.snp.top).inset(10)
+            make.width.height.equalTo(uiView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(imageView.snp.width)
+        }
+        
+        
+        label.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(8)
+            make.leading.equalTo(imageView.snp.leading)
+            make.trailing.equalTo(imageView.snp.trailing)
+            
+        }
     }
+    
 }

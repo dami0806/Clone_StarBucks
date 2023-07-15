@@ -36,16 +36,24 @@ class ShopDataManager{
                     ShopItem(image: UIImage(named: "giftcard"), text: "Item 2")
                 ]),
                 ShopSection(headerTitle: "Best Items", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 4")
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "서머 하이드아웃 젤로 콜드컵 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "서머 하이드아웃 젤로 콜드컵 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "서머 하이드아웃 젤로 콜드컵 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "Item 4"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "Item 1"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "Item 2"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "Item 3"),
+                    ShopItem(image: UIImage(named: "shopBestItems1"), text: "Item 4")
                 ]),
                 ShopSection(headerTitle: "New Products", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 2"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 3"),
-                    ShopItem(image: UIImage(named: "음료"), text: "Item 4")
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "서머 하이드아웃 데비 텀블러 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "SS서머 하이드아웃 젤로 콜드컵 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "서머 하이드아웃 젤로 콜드컵 473ml"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "Item 4"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "Item 1"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "Item 2"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "Item 3"),
+                    ShopItem(image: UIImage(named: "shopBestItems2"), text: "Item 4")
                 ])
             ]
     }

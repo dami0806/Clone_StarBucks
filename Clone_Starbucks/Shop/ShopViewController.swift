@@ -20,7 +20,6 @@ class ShopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
         setupViews()
         setupConstraints()
         dataManager.makeShopData()
@@ -30,10 +29,19 @@ class ShopViewController: UIViewController {
         changeTitleMode(fontSize: 28)
         setNaviItem()
         shopTableView.separatorStyle = .none
+        adjustContentInset()
         
-      
         
         
+    }
+    private func adjustContentInset() {
+        if #available(iOS 11.0, *) {
+            let safeAreaInsets = view.safeAreaInsets
+            //let topInset = safeAreaInsets.top + (navigationController?.navigationBar.frame.height ?? 0)
+            let bottomInset = safeAreaInsets.bottom + 96
+            shopTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+            shopTableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+        }
     }
     
     //viewWillAppear에서 실행
@@ -61,6 +69,7 @@ class ShopViewController: UIViewController {
         shopTableView.register(ShopAllProductsTableViewCell.self, forCellReuseIdentifier: "ShopAllProductsTableViewCell")
         shopTableView.register(ShopMobileGiftsTableViewCell.self, forCellReuseIdentifier: "ShopMobileGiftsTableViewCell")
         shopTableView.register(ShopBestItemsTableViewCell.self, forCellReuseIdentifier: "ShopBestItemsTableViewCell")
+        shopTableView.register(ShopNewProductsTableViewCell.self, forCellReuseIdentifier: "ShopNewProductsTableViewCell")
         
         shopTableView.register(ShopTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ShopTableHeaderView")
         
@@ -69,7 +78,7 @@ class ShopViewController: UIViewController {
     }
     private func setupConstraints(){
         shopTableView.snp.makeConstraints { make in
-           
+            
             make.edges.equalToSuperview()
         }
         
@@ -78,11 +87,15 @@ class ShopViewController: UIViewController {
 }
 extension ShopViewController:  UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print(shopTableView.contentInset)
+        // print(shopTableView.scrollIndicatorInsets.bottom)
+        
         let scrollY = scrollView.contentOffset.y
-     
         if scrollY >= 0 {
             if #available(iOS 11.0, *) {
                 shopTableView.contentInsetAdjustmentBehavior = .never
+                
             } else {
                 automaticallyAdjustsScrollViewInsets = false
             }
@@ -90,13 +103,16 @@ extension ShopViewController:  UIScrollViewDelegate{
         else {
             if #available(iOS 11.0, *) {
                 shopTableView.contentInsetAdjustmentBehavior = .always
+                
             } else {
                 automaticallyAdjustsScrollViewInsets = true
             }
         }
+        
     }
 }
 extension ShopViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -120,9 +136,15 @@ extension ShopViewController: UITableViewDataSource {
             // cell에 필요한 설정 작업 수행
             return cell
         }
-        else {
+        else if indexPath.section == 3{
             // 섹션 1의 셀을 반환 (ShopAllProductsTableViewCell)
             let cell = tableView.dequeueReusableCell(withIdentifier: "ShopBestItemsTableViewCell", for: indexPath) as! ShopBestItemsTableViewCell
+            // cell에 필요한 설정 작업 수행
+            return cell
+        }
+        else {
+            // 섹션 1의 셀을 반환 (ShopAllProductsTableViewCell)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopNewProductsTableViewCell", for: indexPath) as! ShopNewProductsTableViewCell
             // cell에 필요한 설정 작업 수행
             return cell
         }
@@ -146,7 +168,6 @@ extension ShopViewController: UITableViewDataSource {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ShopTableHeaderView") as! ShopTableHeaderView
         let sectionData = shopsDataArray[section]
-        
         let title = sectionData.headerTitle
         headerView.configure(title: title ?? "")
         
@@ -161,10 +182,10 @@ extension ShopViewController: UITableViewDataSource {
     private func handleButtonTap(section: Int) {
         print("Button tapped for section \(section)")
     }
-    
 }
 extension ShopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if indexPath.section == 0 {
             return tableView.bounds.height * 0.3
         }
@@ -178,8 +199,8 @@ extension ShopViewController: UITableViewDelegate {
             return tableView.bounds.height * 0.6
         }
     }
-    
 }
+
 
 import SwiftUI
 struct VCPreViewShopViewController:PreviewProvider {
