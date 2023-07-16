@@ -30,7 +30,8 @@ class ViewController: UITabBarController{
         let orderViewController = OrderViewController()
         let shopViewController = ShopViewController()
         let otherViewController = OtherViewController()
-     
+        
+
         homeViewController.tabBarItem = UITabBarItem(title:"Home",image: UIImage(systemName: "house.fill"), tag: 0)
         payViewController.tabBarItem = UITabBarItem(title: "Pay", image: UIImage(systemName: "creditcard.fill"), tag: 1)
         orderViewController.tabBarItem = UITabBarItem(title: "Order", image: UIImage(systemName: "creditcard.fill"), tag: 2)

@@ -26,6 +26,7 @@ class ShopViewController: UIViewController {
         shopsDataArray = dataManager.getShopData()
         //  print(shopsDataArray)
         title = "Starbucks OnlineStore"
+        tabBarItem = UITabBarItem(title: "Shop", image: UIImage(systemName: "bag.fill"), tag: 3)
         changeTitleMode(fontSize: 28)
         setNaviItem()
         shopTableView.separatorStyle = .none
@@ -88,14 +89,15 @@ class ShopViewController: UIViewController {
 extension ShopViewController:  UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print(shopTableView.contentInset)
+        print(scrollView.contentOffset.y)
         // print(shopTableView.scrollIndicatorInsets.bottom)
         
         let scrollY = scrollView.contentOffset.y
-        if scrollY >= 0 {
+        if scrollY > 189 {
             if #available(iOS 11.0, *) {
-                shopTableView.contentInsetAdjustmentBehavior = .never
-                
+                shopTableView.contentInsetAdjustmentBehavior = .never // 네비자리 무시
+               
+               
             } else {
                 automaticallyAdjustsScrollViewInsets = false
             }

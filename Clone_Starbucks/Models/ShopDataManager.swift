@@ -59,8 +59,6 @@ class ShopDataManager{
     }
     
     func getShopData() -> [ShopSection] {
-       
-        
         return shopDataArray
     }
     

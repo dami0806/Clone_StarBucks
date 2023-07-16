@@ -328,8 +328,8 @@ extension ShopBestItemsTableViewCell: UICollectionViewDelegate, UICollectionView
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollView1: \(scrollView.contentOffset.x)")
-        print("scrollView2: \(scrollView.frame.width)")
+//        print("scrollView1: \(scrollView.contentOffset.x)")
+//        print("scrollView2: \(scrollView.frame.width)")
         let currentPage = Int(scrollView.contentOffset.x / (scrollView.frame.width-10))
         pageControl.currentPage = currentPage
     }

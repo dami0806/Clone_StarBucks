@@ -89,7 +89,6 @@ class ShopAllProductCollectionViewCell: UICollectionViewCell {
         }
         layoutIfNeeded()
         
-        print(imageView.frame.width)
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.clipsToBounds = true
         
