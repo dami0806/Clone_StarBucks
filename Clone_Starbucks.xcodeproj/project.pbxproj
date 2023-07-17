@@ -11,6 +11,7 @@
 		373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373066232A5FC72000828014 /* ShopCollectionViewCell.swift */; };
 		3739DF352A63F79A0093F39D /* OtherWelcomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739DF342A63F79A0093F39D /* OtherWelcomeTableViewCell.swift */; };
 		3739DF372A6439C50093F39D /* OtherPayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739DF362A6439C50093F39D /* OtherPayCollectionViewCell.swift */; };
+		3739DF392A651BB00093F39D /* OtherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739DF382A651BB00093F39D /* OtherUIView.swift */; };
 		3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */; };
 		3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */; };
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
@@ -52,6 +53,7 @@
 		373066232A5FC72000828014 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		3739DF342A63F79A0093F39D /* OtherWelcomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherWelcomeTableViewCell.swift; sourceTree = "<group>"; };
 		3739DF362A6439C50093F39D /* OtherPayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPayCollectionViewCell.swift; sourceTree = "<group>"; };
+		3739DF382A651BB00093F39D /* OtherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUIView.swift; sourceTree = "<group>"; };
 		3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindTableViewCell.swift; sourceTree = "<group>"; };
 		3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuViewController.swift; sourceTree = "<group>"; };
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				377F1B272A63C7D400788478 /* OtherButtonView.swift */,
 				3739DF342A63F79A0093F39D /* OtherWelcomeTableViewCell.swift */,
 				3739DF362A6439C50093F39D /* OtherPayCollectionViewCell.swift */,
+				3739DF382A651BB00093F39D /* OtherUIView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */,
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */,
+				3739DF392A651BB00093F39D /* OtherUIView.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
 				3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */,

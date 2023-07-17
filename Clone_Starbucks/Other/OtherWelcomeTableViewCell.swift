@@ -25,7 +25,7 @@ class OtherWelcomeTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        // 셀의 구성 요소들을 서브뷰로 추가하고 오토레이아웃 설정
+       
 
         contentView.backgroundColor = .blue
         
