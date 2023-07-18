@@ -38,7 +38,7 @@ class ShopViewController: UIViewController {
     private func adjustContentInset() {
         if #available(iOS 11.0, *) {
             let safeAreaInsets = view.safeAreaInsets
-            //let topInset = safeAreaInsets.top + (navigationController?.navigationBar.frame.height ?? 0)
+            
             let bottomInset = safeAreaInsets.bottom + 96
             shopTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
             shopTableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
@@ -89,8 +89,8 @@ class ShopViewController: UIViewController {
 extension ShopViewController:  UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print(scrollView.contentOffset.y)
-        // print(shopTableView.scrollIndicatorInsets.bottom)
+        //print(scrollView.contentOffset.y)
+        
         
         let scrollY = scrollView.contentOffset.y
         if scrollY > 189 {

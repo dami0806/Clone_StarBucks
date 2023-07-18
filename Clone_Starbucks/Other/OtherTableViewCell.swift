@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 class OtherTableViewCell: UITableViewCell {
+    var collectionViewHeightConstraint: Constraint? // 콜렉션 뷰 높이를 위한 제약 조건
+
     let dataManager = OtherDataManager()
     var othersDataArray: [OtherSection] = []
     
@@ -18,6 +20,7 @@ class OtherTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
         collectionView.register(OtherPayCollectionViewCell.self, forCellWithReuseIdentifier: "OtherPayCollectionViewCell")
         contentView.addSubview(collectionView)
         return collectionView
@@ -31,8 +34,7 @@ class OtherTableViewCell: UITableViewCell {
     var sectionData: OtherSection? {
         didSet {
             collectionView.reloadData()
-//            collectionView.layoutIfNeeded()
-//            tableView?.reloadData()
+
         }
     }
     weak var tableView: UITableView? // 테이블 뷰를 참조
@@ -50,8 +52,11 @@ class OtherTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(collectionView)
         contentView.addSubview(lineView)
+        //collectionView.addSubview(lineView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+            self.collectionViewHeightConstraint = make.height.equalTo(0).constraint // 초기에 높이를 0으로 설정합니다.
+
         }
         lineView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(15)
@@ -63,6 +68,13 @@ class OtherTableViewCell: UITableViewCell {
         dataManager.makeOtherData()
         othersDataArray = dataManager.getOtherData()
     }
+    func calculateCollectionViewHeight() -> CGFloat {
+            let itemCount = sectionData?.items.count ?? 0
+            let itemHeight = contentView.bounds.width * 0.15
+            
+        let collectionViewHeight =  CGFloat(round(Double(itemCount) / 2)) * itemHeight + 30
+            return collectionViewHeight
+        }
 }
 
 extension OtherTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -83,7 +95,7 @@ extension OtherTableViewCell: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = contentView.bounds.width * 0.5
-        let height = contentView.bounds.height * 0.45
+        let height = contentView.bounds.width * 0.15
         return CGSize(width: width, height: height)
     }
     

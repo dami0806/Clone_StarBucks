@@ -18,7 +18,7 @@ class OtherViewController: UIViewController {
         return tableView
         
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Other"
@@ -26,7 +26,18 @@ class OtherViewController: UIViewController {
         othersDataArray = dataManager.getOtherData()
         setupTableView()
         changeTitleMode(fontSize: 32)
+        adjustContentInset()
     }
+    private func adjustContentInset() {
+        if #available(iOS 11.0, *) {
+            let safeAreaInsets = view.safeAreaInsets
+            
+            let bottomInset = safeAreaInsets.bottom + 200
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+        }
+    }
+    
     private func setupTableView(){
         tableView.register(OtherTableViewCell.self, forCellReuseIdentifier: "OtherTableViewCell")
         tableView.register(OtherWelcomeTableViewCell.self, forCellReuseIdentifier: "OtherWelcomeTableViewCell")
@@ -35,31 +46,54 @@ class OtherViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        
     }
     
 }
 
-extension OtherViewController:UITableViewDelegate,UITableViewDataSource {
+extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print(scrollView.contentOffset.y)
+        // print(shopTableView.scrollIndicatorInsets.bottom)
+        
+        let scrollY = scrollView.contentOffset.y
+        if scrollY > 200 {
+            if #available(iOS 11.0, *) {
+                tableView.contentInsetAdjustmentBehavior = .never // 네비자리 무시
+                
+                
+            } else {
+                automaticallyAdjustsScrollViewInsets = false
+            }
+        }
+        else {
+            if #available(iOS 11.0, *) {
+                tableView.contentInsetAdjustmentBehavior = .always
+                
+            } else {
+                automaticallyAdjustsScrollViewInsets = true
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         if section == 0 {
-                let welcomeCell = tableView.dequeueReusableCell(withIdentifier: "OtherWelcomeTableViewCell", for: indexPath) as! OtherWelcomeTableViewCell
-                
-                // Configure the welcome cell if needed
-                
-                return welcomeCell
-            }  else {
-                let otherCell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
-                let sectionData = othersDataArray[indexPath.section]
-                otherCell.sectionData = sectionData
-                return otherCell
-            }
+            let welcomeCell = tableView.dequeueReusableCell(withIdentifier: "OtherWelcomeTableViewCell", for: indexPath) as! OtherWelcomeTableViewCell
+            return welcomeCell
+        }  else {
+            let otherCell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
+            let sectionData = othersDataArray[indexPath.section]
+            otherCell.sectionData = sectionData
+            return otherCell
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return othersDataArray.count
     }
-   
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -69,7 +103,13 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource {
             return tableView.bounds.width * 1.3
         }
         else {
-            return tableView.bounds.width * 0.3
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell") as? OtherTableViewCell
+            let sectionData = othersDataArray[indexPath.section]
+            cell?.sectionData = sectionData
+            let collectionViewHeight = cell?.calculateCollectionViewHeight() ?? 0
+            return collectionViewHeight
+            //return tableView.bounds.width * 0.3
         }
     }
     //헤더
@@ -87,11 +127,10 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource {
         let sectionData = othersDataArray[section]
         let title = sectionData.headerTitle
         headerView.configure(title: title ?? "")
-     
         return headerView
     }
-   
+    
 }
-    
-    
+
+
 

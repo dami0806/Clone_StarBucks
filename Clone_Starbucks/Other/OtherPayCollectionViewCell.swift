@@ -14,13 +14,13 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .black
         contentView.addSubview(label)
         label.numberOfLines = 2
@@ -39,7 +39,7 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             
-            make.top.bottom.equalToSuperview().inset(10)
+            make.top.bottom.equalToSuperview().inset(14.5)
             make.width.equalTo(imageView.snp.height)
             make.leading.equalToSuperview().inset(20)
             
