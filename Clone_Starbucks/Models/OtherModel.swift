@@ -16,3 +16,8 @@ struct OtherSection{
     let headerTitle :String?
     let items: [OtherItem]
 }
+struct MembershipData {
+    let imageName: String
+    let mainLabelText: String
+    let subLabelText: String
+}

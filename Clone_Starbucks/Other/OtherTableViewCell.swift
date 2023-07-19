@@ -52,10 +52,8 @@ class OtherTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(collectionView)
         contentView.addSubview(lineView)
-        //collectionView.addSubview(lineView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            self.collectionViewHeightConstraint = make.height.equalTo(0).constraint // 초기에 높이를 0으로 설정합니다.
 
         }
         lineView.snp.makeConstraints { make in

@@ -109,7 +109,7 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
             cell?.sectionData = sectionData
             let collectionViewHeight = cell?.calculateCollectionViewHeight() ?? 0
             return collectionViewHeight
-            //return tableView.bounds.width * 0.3
+            
         }
     }
     //헤더
