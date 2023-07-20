@@ -29,7 +29,7 @@ class ShopDataManager{
                     ShopItem(image: UIImage(named: "음료"), text: "티/커피용품"),
                     ShopItem(image: UIImage(named: "음료"), text: "세트"),
                     ShopItem(image: UIImage(named: "음료"), text: "스낵")
-                 
+    
                 ]),
                 ShopSection(headerTitle: "Mobile Gifts", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
                     ShopItem(image: UIImage(named: "giftitem"), text: "Item 1"),
@@ -57,11 +57,8 @@ class ShopDataManager{
                 ])
             ]
     }
-    
     func getShopData() -> [ShopSection] {
         return shopDataArray
     }
-    
-    
 }
 

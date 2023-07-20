@@ -15,7 +15,6 @@ class OrderViewController: UIViewController {
     var drinksDataArray: [Drinks] = []
     var foodsDataArray: [Foods] = []
     var goodsDataArray: [Goods] = []
-
     var allMenuIndex : Int = 0
     
     lazy var scrollView: UIScrollView = {
@@ -29,8 +28,6 @@ class OrderViewController: UIViewController {
         let view = UIView()
         return view
     }()
-    
-    
     let items = ["전체 메뉴", "나만의 메뉴"]
     var tabBarButtons = [UIButton]()
     var selectedTabIndex = 0
@@ -318,18 +315,12 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
             
             if scrollView.contentOffset.y < -88 {
                 scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화
-                
-                // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
-                
                tableView.isScrollEnabled = false
 
                 
             } else {
                 
                 scrollView.bounces = false // 스크롤을 아래로 내릴 때 바운스 비활성화
-                
-                // AllMenuViewController의 tableView 속성에 접근하여 스크롤 제어 또는 contentOffset.y 프린트
-                
                 tableView.isScrollEnabled = true
                 
                 if tableView.contentOffset.y > 0{
@@ -337,8 +328,6 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
                 }  else {
                     tableView.bounces = false
                 }
-//                print(scrollView.contentOffset.y)
-//                print(tableView.contentOffset.y)
                 
             }
             

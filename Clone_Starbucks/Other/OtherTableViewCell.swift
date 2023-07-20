@@ -21,6 +21,8 @@ class OtherTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .clear
+       // collectionView.backgroundColor = UIColor.otherCellGray
         collectionView.register(OtherPayCollectionViewCell.self, forCellWithReuseIdentifier: "OtherPayCollectionViewCell")
         contentView.addSubview(collectionView)
         return collectionView
@@ -52,6 +54,8 @@ class OtherTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(collectionView)
         contentView.addSubview(lineView)
+        
+        contentView.backgroundColor = .clear
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
 

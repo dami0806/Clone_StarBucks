@@ -15,7 +15,16 @@ class OtherWelcomeItemUIView : UIView {
     
     private lazy var backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
+       // view.backgroundColor = .orange
+        view.layer.cornerRadius = 20
+        view.backgroundColor = .white
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 0.5 //0일수록 투명
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowRadius = 5 //0일수록 반경
+        
+        view.layer.masksToBounds = false
+   
         return view
     }()
     
@@ -57,14 +66,14 @@ class OtherWelcomeItemUIView : UIView {
         }
         uiImage.snp.makeConstraints { make in
             make.centerX.equalTo(backView)
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(uiImage.snp.width)
-            make.top.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(20)
             
         }
         label.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(uiImage.snp.bottom).inset(10)
+            make.top.equalTo(uiImage.snp.bottom).offset(10)
         }
         
     }
@@ -91,6 +100,8 @@ class SinsegaeUIView: UIView {
           let imageView = UIImageView()
           imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "신세계")
+        
+        
           return imageView
       }()
       
@@ -140,39 +151,53 @@ class SinsegaeUIView: UIView {
 
 
 class OtherWelcomeUIView : UIView {
+    
     let starUIView: OtherWelcomeItemUIView
     let receiptUIView: OtherWelcomeItemUIView
     let myInfoUIView: OtherWelcomeItemUIView
     let accountUIView: OtherWelcomeItemUIView
     let myMenu: OtherWelcomeItemUIView
-    
     let sinsegeaUIView: SinsegaeUIView
+    let cupImage: UIImageView
+    
+    
     lazy var stackView1: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starUIView, receiptUIView,UIView()])
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 15
         return stackView
     }()
     lazy var stackView2: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [myInfoUIView, accountUIView, myMenu])
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 15
         return stackView
     }()
  
- 
-    func setupView() {
+    func setupSinsegeaUI(){
+        sinsegeaUIView.layer.cornerRadius = 20
+        sinsegeaUIView.backgroundColor = .white
+        sinsegeaUIView.layer.shadowColor = UIColor.lightGray.cgColor
+        sinsegeaUIView.layer.shadowOpacity = 0.5 //0일수록 투명
+        sinsegeaUIView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        sinsegeaUIView.layer.shadowRadius = 5 //0일수록 반경
         
+        sinsegeaUIView.layer.masksToBounds = false
+
+    }
+    func setupView() {
+        super.addSubview(cupImage)
         super.addSubview(stackView2)
         super.addSubview(stackView1)
         super.addSubview(sinsegeaUIView)
-        sinsegeaUIView.backgroundColor = .brown
+        setupSinsegeaUI()
+        cupImage.image = UIImage(named: "컵하이")
         sinsegeaUIView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(stackView1)
-            make.height.equalTo(sinsegeaUIView.snp.width).multipliedBy(0.3)
-            make.bottom.equalToSuperview().offset(20)
+            make.height.equalTo(sinsegeaUIView.snp.width).multipliedBy(0.25)
+            make.bottom.equalToSuperview().inset(20)
         }
         stackView2.snp.makeConstraints { make in
             make.width.equalTo(super.snp.width).inset(20)
@@ -184,10 +209,15 @@ class OtherWelcomeUIView : UIView {
             make.leading.equalToSuperview().inset(20)
             make.height.equalTo(stackView2.snp.height)
             make.width.equalTo(stackView2.snp.width)
-            make.bottom.equalTo(stackView2.snp.top).offset(10)
+            make.bottom.equalTo(stackView2.snp.top).offset(-15)
             
         }
-    
+        cupImage.snp.makeConstraints { make in
+            make.height.equalTo(stackView2.snp.height)
+            make.width.equalTo(cupImage.snp.height).multipliedBy(1.2)
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(stackView2.snp.top).offset(-10)
+        }
        }
        
        override init(frame: CGRect) {
@@ -197,6 +227,7 @@ class OtherWelcomeUIView : UIView {
            self.accountUIView = OtherWelcomeItemUIView()
            self.myMenu = OtherWelcomeItemUIView()
            self.sinsegeaUIView = SinsegaeUIView()
+           self.cupImage = UIImageView()
            super.init(frame: frame)
            setupView()
        }

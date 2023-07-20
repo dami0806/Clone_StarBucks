@@ -39,8 +39,6 @@ class OtherTableHeaderView: UITableViewHeaderFooterView{
         
         // 버튼 설정
         button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-     
-
         button.tintColor = .black
         contentView.addSubview(button)
         

@@ -11,12 +11,12 @@ import SnapKit
 class OtherPayCollectionViewCell : UICollectionViewCell {
     let dataManager = OtherDataManager()
     var othersDataArray: [OtherSection] = []
-    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
     lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -29,7 +29,6 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
 
     }
@@ -37,6 +36,7 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
         dataManager.makeOtherData()
         othersDataArray = dataManager.getOtherData()
         contentView.addSubview(imageView)
+        contentView.backgroundColor = .clear
         imageView.snp.makeConstraints { make in
             
             make.top.bottom.equalToSuperview().inset(14.5)
@@ -56,7 +56,6 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     func configure(with image: UIImage, title: String) {
         imageView.image = image
         titleLabel.text = title

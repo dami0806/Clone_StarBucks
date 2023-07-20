@@ -14,6 +14,7 @@ class OtherViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.otherCellGray
         tableView.separatorStyle = .none
         return tableView
         
@@ -27,6 +28,8 @@ class OtherViewController: UIViewController {
         setupTableView()
         changeTitleMode(fontSize: 32)
         adjustContentInset()
+        
+        
     }
     private func adjustContentInset() {
         if #available(iOS 11.0, *) {
@@ -46,8 +49,7 @@ class OtherViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        
+
     }
     
 }
@@ -86,6 +88,7 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
             let otherCell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
             let sectionData = othersDataArray[indexPath.section]
             otherCell.sectionData = sectionData
+            otherCell.backgroundColor = .clear
             return otherCell
         }
     }
@@ -100,7 +103,7 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return tableView.bounds.width * 1.3
+            return tableView.bounds.width * 1.2
         }
         else {
             

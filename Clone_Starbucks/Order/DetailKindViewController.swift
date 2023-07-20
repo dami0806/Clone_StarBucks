@@ -106,9 +106,7 @@ extension DetailKindViewController :UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-//        cell.textLabel?.text = "Row \(indexPath.row + 1)"
-//        return cell
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailKindCell", for: indexPath) as! DetailKindTableViewCell
   
      
