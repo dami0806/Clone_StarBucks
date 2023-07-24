@@ -62,8 +62,6 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
         if scrollY > 200 {
             if #available(iOS 11.0, *) {
                 tableView.contentInsetAdjustmentBehavior = .never // 네비자리 무시
-                
-                
             } else {
                 automaticallyAdjustsScrollViewInsets = false
             }

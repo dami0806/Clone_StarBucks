@@ -40,6 +40,17 @@ class OtherTableViewCell: UITableViewCell {
         }
     }
     weak var tableView: UITableView? // 테이블 뷰를 참조
+    
+    private lazy var loginLabel: UILabel = {
+           let label = UILabel()
+           label.text = "로그아웃"
+           label.textAlignment = .center
+           label.textColor = .black
+         label.font = UIFont.systemFont(ofSize: 15, weight:.light)
+           label.isHidden = true // 초기에는 숨김 처리
+           return label
+       }()
+    
     // 셀 초기화 및 구성을 위한 메서드
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,6 +67,8 @@ class OtherTableViewCell: UITableViewCell {
         contentView.addSubview(lineView)
         
         contentView.backgroundColor = .clear
+        contentView.addSubview(loginLabel)
+           
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
 
@@ -67,6 +80,10 @@ class OtherTableViewCell: UITableViewCell {
             make.height.equalTo(0.5)
             
         }
+        loginLabel.snp.makeConstraints { make in
+             make.centerX.equalToSuperview()
+             make.bottom.equalToSuperview().offset(50)
+         }
         dataManager.makeOtherData()
         othersDataArray = dataManager.getOtherData()
     }
@@ -79,11 +96,21 @@ class OtherTableViewCell: UITableViewCell {
         }
     func configureCell(sectionData: OtherSection, isLastCell: Bool) {
         self.sectionData = sectionData
+        loginLabel.isHidden = !isLastCell
         collectionView.reloadData()
 
         if isLastCell {
             // 마지막 셀인 경우 lineView를 숨김 처리
             lineView.isHidden = true
+            
+            // 라벨 텍스트와 밑줄
+                       let labelText = "로그아웃"
+                       let attributes: [NSAttributedString.Key: Any] = [
+                           .foregroundColor: UIColor(white: 0.5, alpha: 1.0),
+                           .underlineStyle: NSUnderlineStyle.single.rawValue
+                       ]
+                       let attributedText = NSMutableAttributedString(string: labelText, attributes: attributes)
+                       loginLabel.attributedText = attributedText
         } else {
             // 마지막 셀이 아닌 경우 lineView를 표시
             lineView.isHidden = false
