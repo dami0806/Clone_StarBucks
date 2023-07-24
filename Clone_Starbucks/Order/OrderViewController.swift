@@ -55,12 +55,8 @@ class OrderViewController: UIViewController {
         view.backgroundColor = .starbucksGreen
         return view
     }()
-    private lazy var selectStoreView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        return view
-    }()
-    
+    var selectStore: selectStoreView
+ 
     private var viewControllers = [AllMenuViewController(),MyMenuViewController()]
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +72,17 @@ class OrderViewController: UIViewController {
         dataManager.makeGoodsData()
         goodsDataArray = dataManager.getGoodsData()
     }
-    
+    init() {
+          // 사용자 정의 뷰 초기화
+          selectStore = selectStoreView(frame: .zero)
+          
+          // 부모 클래스(UINavigationController)의 초기화자 호출
+          super.init(nibName: nil, bundle: nil)
+      }
+      
+      required init?(coder aDecoder: NSCoder) {
+          fatalError("init(coder:) has not been implemented")
+      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,19 +91,20 @@ class OrderViewController: UIViewController {
         title = "Order"
         //print(navigationBarHeight)
         scrollView.delegate = self
+        setInitViewController()
+        setNaviItem()
+      
+        
+    }
+    private func setInitViewController(){
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
             allMenuViewController.tableView.delegate = self
             allMenuViewController.tableView.dataSource = self
             allMenuViewController.dataReceivedHandler = { [weak self] data in
                 self?.handleDataReceived(data)}
         }
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .gray
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-       
-        
     }
-    func handleDataReceived(_ data: Int) {
+    private func handleDataReceived(_ data: Int) {
         allMenuIndex = data
         print("1:\(allMenuIndex)")
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
@@ -126,6 +133,10 @@ class OrderViewController: UIViewController {
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
         searchButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         navigationItem.rightBarButtonItem = searchButton
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .gray
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+       
     }
     
     @objc func searchButtonTapped() {
@@ -163,8 +174,8 @@ class OrderViewController: UIViewController {
             make.height.equalTo(50)
             
         }
-        view.addSubview(selectStoreView)
-        selectStoreView.snp.makeConstraints { make in
+        view.addSubview(selectStore)
+        selectStore.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(60)

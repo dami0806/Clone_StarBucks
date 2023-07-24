@@ -10,8 +10,6 @@ import UIKit
 
 class OtherWelcomeTableViewCell: UITableViewCell {
     
-   
-    
     private lazy var label: UILabel = {
         let label = UILabel()
         label.text = "님\n환영합니다!🙌🏻"
@@ -37,16 +35,16 @@ class OtherWelcomeTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(uiView)
         contentView.backgroundColor = UIColor.otherCellGray
-                label.snp.makeConstraints { make in
-                    make.top.equalToSuperview().inset(20)
-                    make.centerX.equalToSuperview()
-        
-                }
-                uiView.snp.makeConstraints { make in
-                    make.top.equalTo(label.snp.bottom)
-                    make.leading.trailing.bottom.equalToSuperview()
-                }
+        label.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(20)
+            make.centerX.equalToSuperview()
             
+        }
+        uiView.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
     }
     
     

@@ -13,7 +13,7 @@ final class DetailKindViewController: UIViewController {
     var drinksDataArray: [Drinks] = []
     var foodsDataArray: [Foods] = []
     var goodsDataArray: [Goods] = []
-    // 전화면에서 Movie데이터를 전달 받기 위한 변수
+    // 전화면에서 데이터를 전달 받기 위한 변수
     var drinksData: Drinks?
     var foodsData: Foods?
     var goodsData: Goods?

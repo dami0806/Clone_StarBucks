@@ -30,7 +30,7 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-
+        
     }
     func setup(){
         dataManager.makeOtherData()
@@ -48,7 +48,7 @@ class OtherPayCollectionViewCell : UICollectionViewCell {
             
             make.leading.equalTo(imageView.snp.trailing).offset(20)
             make.centerY.equalTo(imageView.snp.centerY)
-           
+            
         }
         
     }

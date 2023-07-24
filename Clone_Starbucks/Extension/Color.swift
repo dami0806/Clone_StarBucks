@@ -12,5 +12,5 @@ extension UIColor {
     
     static let greenText = UIColor(named: "greenText")
     static let otherCellGray = UIColor(named: "otherCellGray")
-    
+    static let selectShopBottom = UIColor(named: "selectShopBottom")
 }

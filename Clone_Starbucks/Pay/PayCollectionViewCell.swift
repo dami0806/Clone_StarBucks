@@ -198,9 +198,10 @@ class PayCollectionViewCell: UICollectionViewCell {
         }
         //7.버튼 두개
         buttonSt.snp.makeConstraints { make in
-            make.top.equalTo(validNumSt.snp.bottom).offset(3)
+            make.top.equalTo(validNumSt.snp.bottom)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview().inset(3)
+            make.height.equalTo(barcordImageView.snp.height)
     
         }
         //7-1.자동충전

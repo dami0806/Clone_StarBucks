@@ -192,8 +192,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
                 make.width.equalTo(deliverViewWeight)
             }
             stackView.snp.remakeConstraints { make in
-                //make.top.bottom.equalTo(deliverView).inset(10)
-                //make.leading.trailing.equalTo(deliverView).inset(30)
                 make.center.equalTo(deliverView.snp.center)
             }
             

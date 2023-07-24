@@ -59,6 +59,6 @@ class OtherTableHeaderView: UITableViewHeaderFooterView{
     
     func configure(title: String) {
         titleLabel.text = title
-       
+        
     }
 }

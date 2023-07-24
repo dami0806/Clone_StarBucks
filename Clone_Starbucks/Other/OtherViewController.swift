@@ -28,8 +28,6 @@ class OtherViewController: UIViewController {
         setupTableView()
         changeTitleMode(fontSize: 32)
         adjustContentInset()
-        
-        
     }
     private func adjustContentInset() {
         if #available(iOS 11.0, *) {
@@ -49,7 +47,7 @@ class OtherViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
+        
     }
     
 }
@@ -87,10 +85,14 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
         }  else {
             let otherCell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
             let sectionData = othersDataArray[indexPath.section]
+            
+            let isLastCell = indexPath.section == tableView.numberOfSections - 1
+            otherCell.configureCell(sectionData: sectionData, isLastCell: isLastCell)
             otherCell.sectionData = sectionData
             otherCell.backgroundColor = .clear
             return otherCell
         }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -132,7 +134,6 @@ extension OtherViewController:UITableViewDelegate,UITableViewDataSource,UIScroll
         headerView.configure(title: title ?? "")
         return headerView
     }
-    
 }
 
 

@@ -77,6 +77,18 @@ class OtherTableViewCell: UITableViewCell {
         let collectionViewHeight =  CGFloat(round(Double(itemCount) / 2)) * itemHeight + 30
             return collectionViewHeight
         }
+    func configureCell(sectionData: OtherSection, isLastCell: Bool) {
+        self.sectionData = sectionData
+        collectionView.reloadData()
+
+        if isLastCell {
+            // 마지막 셀인 경우 lineView를 숨김 처리
+            lineView.isHidden = true
+        } else {
+            // 마지막 셀이 아닌 경우 lineView를 표시
+            lineView.isHidden = false
+        }
+    }
 }
 
 extension OtherTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

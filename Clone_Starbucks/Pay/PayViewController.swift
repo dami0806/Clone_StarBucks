@@ -38,15 +38,8 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         contentView.addSubview(collectionView)
         return collectionView
     }()
-    
-    private lazy var twoButtonView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        contentView.addSubview(view)
-        return view
-        
-        
-    }()
+    var twoButtonView : CouponButton
+
     private lazy var adView : UIView = {
         let view = UIView()
         contentView.addSubview(view)
@@ -63,6 +56,17 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         adView.addSubview(imgView)
         return imgView
     }()
+    init() {
+         // 사용자 정의 뷰 초기화
+         twoButtonView = CouponButton(frame: .zero)
+         
+         // 부모 클래스(UINavigationController)의 초기화자 호출
+         super.init(nibName: nil, bundle: nil)
+     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewWillAppear(_ animated: Bool) {
         setNaviItem()
     }
@@ -81,7 +85,8 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         
     }
     func makeUI(){
-        
+        contentView.addSubview(twoButtonView)
+
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -98,7 +103,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         twoButtonView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom)
             make.trailing.leading.equalToSuperview()
-            make.height.equalTo(twoButtonView.snp.width).multipliedBy(0.25)
+            make.height.equalTo(twoButtonView.snp.width).multipliedBy(0.16)
         }
         
         adView.snp.makeConstraints { make in
