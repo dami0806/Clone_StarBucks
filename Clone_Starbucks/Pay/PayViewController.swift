@@ -141,7 +141,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.backgroundColor = .white
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(listButtonTapped))
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = .gray
         
     }
     

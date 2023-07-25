@@ -27,7 +27,48 @@ class OtherViewController: UIViewController {
         othersDataArray = dataManager.getOtherData()
         setupTableView()
         changeTitleMode(fontSize: 32)
+        
         adjustContentInset()
+        
+        let bellImage = UIImage(systemName: "bell")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .regular))
+             let settingsImage = UIImage(systemName: "gearshape")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .regular))
+             
+        let bellButtonItem = UIBarButtonItem(image: bellImage, style: .plain, target: self, action: #selector(bellButtonTapped))
+               let settingsButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(settingsButtonTapped))
+               
+               navigationItem.rightBarButtonItems = [settingsButtonItem, bellButtonItem]
+        bellButtonItem.tintColor = .black
+        settingsButtonItem.tintColor = .black
+
+                                                
+           }
+    
+    @objc func bellButtonTapped() {
+          // 벨 버튼을 눌렀을 때 처리하는 로직
+      }
+
+      @objc func settingsButtonTapped() {
+          // 설정 버튼을 눌렀을 때 처리하는 로직
+      }
+    private func setNaviItem() {
+        // 네비게이션 바 스타일을 설정
+        navigationController?.navigationBar.barStyle = .default
+        
+        // 네비게이션 바 배경색을 흰색으로 설정
+        navigationController?.navigationBar.barTintColor = .white
+        
+        // 네비게이션 바의 텍스트 컬러를 흰색으로 설정
+        navigationController?.navigationBar.tintColor = .black
+        
+        // 네비게이션 바의 타이틀 텍스트 속성을 설정
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        //네비게이션 바의 그림자 없애기
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        
+       
     }
     private func adjustContentInset() {
         if #available(iOS 11.0, *) {

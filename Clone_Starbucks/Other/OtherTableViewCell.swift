@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 class OtherTableViewCell: UITableViewCell {
     var collectionViewHeightConstraint: Constraint? // 콜렉션 뷰 높이를 위한 제약 조건
-
     let dataManager = OtherDataManager()
     var othersDataArray: [OtherSection] = []
     
@@ -40,7 +39,6 @@ class OtherTableViewCell: UITableViewCell {
         }
     }
     weak var tableView: UITableView? // 테이블 뷰를 참조
-    
     private lazy var loginLabel: UILabel = {
            let label = UILabel()
            label.text = "로그아웃"
@@ -65,7 +63,6 @@ class OtherTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(collectionView)
         contentView.addSubview(lineView)
-        
         contentView.backgroundColor = .clear
         contentView.addSubview(loginLabel)
            
