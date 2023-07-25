@@ -19,7 +19,6 @@ extension UIViewController {
                 navigationItem.largeTitleDisplayMode = .never
             } else {
                 navigationItem.largeTitleDisplayMode = .always
-                
             }
         }
     }

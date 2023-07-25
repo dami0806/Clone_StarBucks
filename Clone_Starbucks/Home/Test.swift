@@ -1,14 +1,15 @@
 //
-//  HomeViewController.swift
+//  Test.swift
 //  Clone_Starbucks
 //
-//  Created by 박다미 on 2023/03/25.
+//  Created by 박다미 on 2023/07/25.
 //
 
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, UIScrollViewDelegate{
+class TestViewController: UIViewController, UIScrollViewDelegate {
+    
     final let deliverViewHeight = 60
     final let deliverViewWeight = 180
     
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         contentView.addSubview(view)
         return view
     }()
+    
     private lazy var stackView: UIStackView = {
         let st = UIStackView()
         st.axis = .horizontal
@@ -97,7 +99,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         return view
     }()
     
-    
+    private lazy var stickyHeaderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        contentView.addSubview(view)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,36 +135,38 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         stackView.snp.makeConstraints { make in
             make.top.bottom.equalTo(deliverView).inset(10)
             make.leading.trailing.equalTo(deliverView).inset(30)
-
         }
         
         deliverImage.snp.makeConstraints { make in
-          make.width.height.equalTo(deliverViewHeight-20)
+            make.width.height.equalTo(deliverViewHeight-20)
         }
+        
         deliverLabel.isHidden = false
-        
-        
         
         view1.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.height.equalTo(300)
             make.top.leading.trailing.equalToSuperview()
         }
+        
         view2.snp.makeConstraints { make in
             make.top.equalTo(view1.snp.bottom)
             make.height.equalTo(200)
             make.leading.trailing.equalToSuperview()
         }
+        
         view3.snp.makeConstraints { make in
             make.top.equalTo(view2.snp.bottom)
             make.height.equalTo(200)
             make.leading.trailing.equalToSuperview()
         }
+        
         view4.snp.makeConstraints { make in
             make.top.equalTo(view3.snp.bottom)
             make.height.equalTo(300)
             make.leading.trailing.equalToSuperview()
         }
+        
         view5.snp.makeConstraints { make in
             make.top.equalTo(view4.snp.bottom)
             make.height.equalTo(100)
@@ -165,8 +174,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
             make.bottom.equalTo(contentView.snp.bottom)
         }
         
+        stickyHeaderView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(500)
+        }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+
+               let stickyHeaderYPosition = max(-offset, -400)
+               stickyHeaderView.snp.updateConstraints { make in
+                   make.top.equalToSuperview().offset(stickyHeaderYPosition)
+               }
         if scrollView.contentOffset.y > previousContentOffset.y { // 스크롤이 내려갔을 때 작아짐
             deliverView.snp.updateConstraints { make in
                 make.width.equalTo(deliverViewHeight)
