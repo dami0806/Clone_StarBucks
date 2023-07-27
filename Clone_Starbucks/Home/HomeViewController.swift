@@ -15,25 +15,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
     private var previousOffset: CGFloat = 0
     private var previousContentOffset: CGPoint = .zero
     
-    private lazy var scrollView:UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .blue
-        scrollView.delegate = self
-        view.addSubview(scrollView)
-        return scrollView
-    }()
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.backgroundColor = .clear
-        scrollView.addSubview(contentView)
-        return contentView
-    }()
+
     
     private lazy var deliverView: UIView = {
         let view = UIView()
         view.backgroundColor = .starbucksGreen
         view.layer.cornerRadius =  CGFloat(deliverViewHeight/2)
-        contentView.addSubview(view)
+        collectionView.addSubview(view)
         return view
     }()
     private lazy var stackView: UIStackView = {
@@ -64,43 +52,22 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         return label
     }()
     
-    
-    private lazy var view1: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        contentView.addSubview(view)
-        return view
-    }()
-    private lazy var view2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        contentView.addSubview(view)
-        return view
-    }()
-    private lazy var view3: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        contentView.addSubview(view)
-        
-        return view
-    }()
-    private lazy var view4: UIView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        contentView.addSubview(view)
-        return view
-    }()
-    private lazy var view5: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        contentView.addSubview(view)
-        return view
-    }()
+  
     private lazy var stickyHeaderView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
-        contentView.addSubview(view)
+        collectionView.addSubview(view)
         return view
+    }()
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCollectionViewCell")
+        view.addSubview(collectionView)
+        return collectionView
     }()
     var stickyHeaderTopConstraint: Constraint?
     
@@ -108,20 +75,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
-        self.scrollView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     func makeUI(){
         view.addSubview(deliverView)
         
-        scrollView.snp.makeConstraints { make in
+
+        collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-        }
-        
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView)
-            make.width.equalTo(scrollView) // 내용 뷰의 너비를 스크롤 뷰와 동일하게 설정
-        }
+               }
+       
         deliverView.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(30) // 오른쪽으로 20만큼 여백
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -144,32 +109,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         
         
         
-        view1.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.height.equalTo(300)
-            make.top.leading.trailing.equalToSuperview()
-        }
-        view2.snp.makeConstraints { make in
-            make.top.equalTo(view1.snp.bottom)
-            make.height.equalTo(200)
-            make.leading.trailing.equalToSuperview()
-        }
-        view3.snp.makeConstraints { make in
-            make.top.equalTo(view2.snp.bottom)
-            make.height.equalTo(200)
-            make.leading.trailing.equalToSuperview()
-        }
-        view4.snp.makeConstraints { make in
-            make.top.equalTo(view3.snp.bottom)
-            make.height.equalTo(300)
-            make.leading.trailing.equalToSuperview()
-        }
-        view5.snp.makeConstraints { make in
-            make.top.equalTo(view4.snp.bottom)
-            make.height.equalTo(100)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(contentView.snp.bottom)
-        }
+        
         stickyHeaderView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(300)
@@ -177,6 +117,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         }
         
     }
+ 
+    
+}
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxHeaderScroll: CGFloat = 200
         
@@ -232,5 +176,18 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         }
         previousContentOffset = scrollView.contentOffset // 이전 컨텐트 오프셋 업데이트
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
+        
+        
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           return CGSize(width: view.bounds.width, height: 400)
+       }
 }

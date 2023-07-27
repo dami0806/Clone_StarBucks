@@ -80,9 +80,6 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         changeTitleMode(fontSize: 32)
         dataManager.makeCardsData() // 데이터 초기화
         cardsDataArray = dataManager.getCardData()
-        
-        
-        
     }
     func makeUI(){
         contentView.addSubview(twoButtonView)
@@ -109,7 +106,6 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
         adView.snp.makeConstraints { make in
             make.top.equalTo(twoButtonView.snp.bottom)
             make.trailing.leading.equalToSuperview()
-           // make.height.equalTo(100)
             make.height.equalTo(adView.snp.width).multipliedBy(0.24)
             make.bottom.equalToSuperview()
         }
@@ -139,7 +135,6 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
     private func configureItems(){
         
         self.navigationController?.navigationBar.backgroundColor = .white
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(listButtonTapped))
         self.navigationItem.rightBarButtonItem?.tintColor = .gray
         

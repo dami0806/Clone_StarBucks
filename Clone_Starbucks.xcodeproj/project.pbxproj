@@ -16,6 +16,8 @@
 		3739DF392A651BB00093F39D /* OtherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739DF382A651BB00093F39D /* OtherUIView.swift */; };
 		3740C75F2A59664700B97CDD /* DetailKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */; };
 		3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */; };
+		37726D6D2A72A4D0002643A6 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37726D6C2A72A4CF002643A6 /* HomeCollectionViewCell.swift */; };
+		37726D6F2A72BA9A002643A6 /* HomeDeliversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37726D6E2A72BA9A002643A6 /* HomeDeliversView.swift */; };
 		377CD2DD2A4DB9D400778DAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CD2DC2A4DB9D400778DAB /* DataManager.swift */; };
 		377F1B202A63BF1000788478 /* OtherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F1B1F2A63BF1000788478 /* OtherDataManager.swift */; };
 		377F1B222A63BF1E00788478 /* OtherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377F1B212A63BF1E00788478 /* OtherModel.swift */; };
@@ -62,6 +64,8 @@
 		3739DF382A651BB00093F39D /* OtherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUIView.swift; sourceTree = "<group>"; };
 		3740C75E2A59664700B97CDD /* DetailKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKindTableViewCell.swift; sourceTree = "<group>"; };
 		3740C7602A59717E00B97CDD /* DetailMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuViewController.swift; sourceTree = "<group>"; };
+		37726D6C2A72A4CF002643A6 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		37726D6E2A72BA9A002643A6 /* HomeDeliversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeliversView.swift; sourceTree = "<group>"; };
 		377CD2DC2A4DB9D400778DAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		377F1B1F2A63BF1000788478 /* OtherDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDataManager.swift; sourceTree = "<group>"; };
 		377F1B212A63BF1E00788478 /* OtherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModel.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 			children = (
 				379ACDD729CEC4BE00EA4A21 /* HomeViewController.swift */,
 				37ECD5D32A6FEF2B00BD3067 /* HomeHeaderView.swift */,
+				37726D6C2A72A4CF002643A6 /* HomeCollectionViewCell.swift */,
+				37726D6E2A72BA9A002643A6 /* HomeDeliversView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */,
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */,
+				37726D6D2A72A4D0002643A6 /* HomeCollectionViewCell.swift in Sources */,
 				3739DF392A651BB00093F39D /* OtherUIView.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
 				379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */,
@@ -361,6 +368,7 @@
 				3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */,
 				37CFF37C2A4F526000BC154F /* PreView.swift in Sources */,
 				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
+				37726D6F2A72BA9A002643A6 /* HomeDeliversView.swift in Sources */,
 				373066222A5FC70C00828014 /* ShopTableViewCell.swift in Sources */,
 				37ECD5CE2A6E8B5700BD3067 /* test.swift in Sources */,
 				37F81F902A5AFCD200B8345A /* ShopDataManager.swift in Sources */,
