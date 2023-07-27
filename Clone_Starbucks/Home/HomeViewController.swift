@@ -96,7 +96,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         contentView.addSubview(view)
         return view
     }()
-    
+    private lazy var stickyHeaderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        contentView.addSubview(view)
+        return view
+    }()
+    var stickyHeaderTopConstraint: Constraint?
     
     
     override func viewDidLoad() {
@@ -128,11 +134,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         stackView.snp.makeConstraints { make in
             make.top.bottom.equalTo(deliverView).inset(10)
             make.leading.trailing.equalTo(deliverView).inset(30)
-
+            
         }
         
         deliverImage.snp.makeConstraints { make in
-          make.width.height.equalTo(deliverViewHeight-20)
+            make.width.height.equalTo(deliverViewHeight-20)
         }
         deliverLabel.isHidden = false
         
@@ -164,13 +170,31 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(contentView.snp.bottom)
         }
+        stickyHeaderView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(300)
+            stickyHeaderTopConstraint = make.top.equalTo(view).constraint
+        }
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let maxHeaderScroll: CGFloat = 200
+        
+        
+        let offsetY = scrollView.contentOffset.y
+        if offsetY < maxHeaderScroll {
+            // 헤더뷰를 스크롤에 따라 움직이도록 처리합니다.
+            stickyHeaderTopConstraint?.update(offset: -offsetY)
+        } else {
+            // 헤더뷰가 200만큼 올라갔을 때 멈추게
+            stickyHeaderTopConstraint?.update(offset: -maxHeaderScroll)
+        }
+        view.layoutIfNeeded()
+        
         if scrollView.contentOffset.y > previousContentOffset.y { // 스크롤이 내려갔을 때 작아짐
             deliverView.snp.updateConstraints { make in
                 make.width.equalTo(deliverViewHeight)
-            
+                
             }
             
             stackView.snp.remakeConstraints { make in
@@ -180,7 +204,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
             }
             deliverImage.snp.remakeConstraints{make in
                 make.width.height.equalTo(deliverViewHeight-20)
-               // make.center.equalTo(deliverView.snp.center)
+                // make.center.equalTo(deliverView.snp.center)
                 
                 
             }
@@ -192,12 +216,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
                 make.width.equalTo(deliverViewWeight)
             }
             stackView.snp.remakeConstraints { make in
-
+                
                 make.center.equalTo(deliverView.snp.center)
             }
             
             deliverImage.snp.remakeConstraints{make in
-      
+                
                 make.width.height.equalTo(deliverViewHeight-20)
                 
             }
