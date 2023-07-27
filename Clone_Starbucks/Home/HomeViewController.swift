@@ -52,13 +52,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         return label
     }()
     
-  
-    private lazy var stickyHeaderView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        collectionView.addSubview(view)
-        return view
-    }()
+
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -69,9 +63,20 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         view.addSubview(collectionView)
         return collectionView
     }()
+    
+      private lazy var stickyHeaderView: UIView = {
+          let uiView = UIView()
+          uiView.backgroundColor = .red
+          view.addSubview(uiView)
+          return uiView
+      }()
     var stickyHeaderTopConstraint: Constraint?
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         // 네비게이션 바 숨기기
+        navigationController?.isNavigationBarHidden = true
+     }
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
