@@ -70,7 +70,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
           view.addSubview(uiView)
           return uiView
       }()
-    var stickyHeaderTopConstraint: Constraint?
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
@@ -112,18 +111,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         }
         deliverLabel.isHidden = false
         
-        
-        
-        
+  
         stickyHeaderView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalTo(view)
+           make.top.equalTo(view)
             make.height.equalTo(300)
-            stickyHeaderTopConstraint = make.top.equalTo(view).constraint
+            view.layoutIfNeeded()
         }
+  
         
     }
- 
-    
 }
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -131,12 +128,22 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         
         let offsetY = scrollView.contentOffset.y
-        if offsetY < maxHeaderScroll {
-            // 헤더뷰를 스크롤에 따라 움직이도록 처리합니다.
-            stickyHeaderTopConstraint?.update(offset: -offsetY)
-        } else {
+        print(offsetY)// -50
+        if offsetY < maxHeaderScroll && offsetY >= -50{
+            // 헤더뷰를 스크롤에 따라 움직이도록 처리
+            stickyHeaderView.snp.updateConstraints { make in
+                            make.top.equalToSuperview().offset(-offsetY)
+                        }
+        } else if offsetY > maxHeaderScroll{
             // 헤더뷰가 200만큼 올라갔을 때 멈추게
-            stickyHeaderTopConstraint?.update(offset: -maxHeaderScroll)
+            stickyHeaderView.snp.updateConstraints { make in
+                          make.top.equalToSuperview().offset(-maxHeaderScroll)
+                      }
+            
+        }else {
+            stickyHeaderView.snp.updateConstraints { make in
+                make.top.equalToSuperview().offset(50)
+                      }
         }
         view.layoutIfNeeded()
         
@@ -165,12 +172,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 make.width.equalTo(deliverViewWeight)
             }
             stackView.snp.remakeConstraints { make in
-                
                 make.center.equalTo(deliverView.snp.center)
             }
             
             deliverImage.snp.remakeConstraints{make in
-                
                 make.width.height.equalTo(deliverViewHeight-20)
                 
             }
