@@ -64,12 +64,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         return collectionView
     }()
     
-      private lazy var stickyHeaderView: UIView = {
-          let uiView = UIView()
-          uiView.backgroundColor = .red
-          view.addSubview(uiView)
-          return uiView
-      }()
+       private var stickyHeaderView: StickyHeaderView!
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
@@ -85,7 +80,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
     
     func makeUI(){
         view.addSubview(deliverView)
-        
+        stickyHeaderView = StickyHeaderView(frame: .zero)
+        view.addSubview(stickyHeaderView)
+
 
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -128,7 +125,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         
         let offsetY = scrollView.contentOffset.y
-        print(offsetY)// -50
+       // print(offsetY)// -50
         if offsetY < maxHeaderScroll && offsetY >= -50{
             // 헤더뷰를 스크롤에 따라 움직이도록 처리
             stickyHeaderView.snp.updateConstraints { make in
