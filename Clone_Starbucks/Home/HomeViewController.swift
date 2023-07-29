@@ -77,7 +77,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+           super.viewDidAppear(animated)
+           
+           // 첫 번째 셀을 중간 아래로 이동 (초기 로드 시에도 실행)
+           if let firstCell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) {
+               let yOffset = 500
+               firstCell.frame.origin.y = CGFloat(yOffset)
+           }
+       }
     func makeUI(){
         view.addSubview(deliverView)
         stickyHeaderView = StickyHeaderView(frame: .zero)
@@ -122,25 +130,29 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let maxHeaderScroll: CGFloat = 200
-        
-        
+    
         let offsetY = scrollView.contentOffset.y
+        let alpha = min(1.0, max(0, (maxHeaderScroll - offsetY) / maxHeaderScroll))
+
        // print(offsetY)// -50
         if offsetY < maxHeaderScroll && offsetY >= -50{
             // 헤더뷰를 스크롤에 따라 움직이도록 처리
             stickyHeaderView.snp.updateConstraints { make in
                             make.top.equalToSuperview().offset(-offsetY)
                         }
+            let alpha = min(1.0, max(0, (maxHeaderScroll - offsetY) / maxHeaderScroll))
+            stickyHeaderView.alphaImageView(alpha: alpha)
         } else if offsetY > maxHeaderScroll{
             // 헤더뷰가 200만큼 올라갔을 때 멈추게
             stickyHeaderView.snp.updateConstraints { make in
                           make.top.equalToSuperview().offset(-maxHeaderScroll)
                       }
-            
+            stickyHeaderView.alphaImageView(alpha: 0)
         }else {
             stickyHeaderView.snp.updateConstraints { make in
                 make.top.equalToSuperview().offset(50)
                       }
+            stickyHeaderView.alphaImageView(alpha: 1)
         }
         view.layoutIfNeeded()
         
@@ -197,4 +209,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: view.bounds.width, height: 400)
        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
+    UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: CGFloat(500), left: 0, bottom: 0, right: 0)
+         }
 }

@@ -107,5 +107,8 @@ class StickyHeaderView: UIView {
             make.trailing.equalToSuperview().inset(10)
         }
     }
+    func alphaImageView(alpha: CGFloat) {
+            imageView.alpha = alpha
+        }
 }
 

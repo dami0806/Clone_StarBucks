@@ -26,3 +26,79 @@ class HomeCollectionViewCell: UICollectionViewCell {
 
 
 }
+class HomeFirstCollectionViewCell: UICollectionViewCell {
+    // 셀 초기화 및 구성을 위한 메서드입니다.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        contentView.backgroundColor = .blue
+    }
+    
+
+
+}
+class HomeSecondCollectionViewCell: UICollectionViewCell {
+    // 셀 초기화 및 구성을 위한 메서드입니다.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        contentView.backgroundColor = .blue
+    }
+    
+
+
+}
+class HomeThirdCollectionViewCell: UICollectionViewCell {
+    // 셀 초기화 및 구성을 위한 메서드입니다.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        contentView.backgroundColor = .blue
+    }
+    
+
+
+}
+class HomeFourthCollectionViewCell: UICollectionViewCell {
+    // 셀 초기화 및 구성을 위한 메서드입니다.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        contentView.backgroundColor = .blue
+    }
+    
+
+
+}
