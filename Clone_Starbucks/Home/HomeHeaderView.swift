@@ -30,7 +30,7 @@ class StickyHeaderView: UIView {
         let envelopeImage = UIImage(systemName: "envelope", withConfiguration: symbolConfig)
         button.setImage(envelopeImage, for: .normal)
         button.setTitle("What's New", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -43,10 +43,9 @@ class StickyHeaderView: UIView {
         let envelopeImage = UIImage(systemName: "ticket", withConfiguration: symbolConfig)
         button.setImage(envelopeImage, for: .normal)
         button.setTitle("Coupon", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
 
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         uiview.addSubview(button)
@@ -81,6 +80,7 @@ class StickyHeaderView: UIView {
     }
     
     private func setupViews() {
+        super.backgroundColor = .white
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(imageView.snp.width).multipliedBy(0.6)
@@ -94,12 +94,12 @@ class StickyHeaderView: UIView {
         whatsNewButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
-            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(3)
+            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2)
         }
         couponButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalTo(whatsNewButton.snp.trailing).offset(10)
-            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(3)
+            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2)
         }
         bellButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
