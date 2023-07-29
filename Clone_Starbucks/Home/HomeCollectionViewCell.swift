@@ -39,7 +39,7 @@ class HomeFirstCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .brown
     }
     
 
@@ -58,7 +58,7 @@ class HomeSecondCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .gray
     }
     
 
@@ -77,7 +77,7 @@ class HomeThirdCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .red
     }
     
 

@@ -52,7 +52,7 @@ class HomeSecondTableViewCell: UITableViewCell{
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .green
 
     }
 
@@ -69,7 +69,7 @@ class HomeThirdTableViewCell: UITableViewCell{
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .brown
 
     }
 

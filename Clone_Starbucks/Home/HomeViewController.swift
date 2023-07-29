@@ -76,6 +76,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         makeUI()
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(HomeFirstCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFirstCollectionViewCell")
+        collectionView.register(HomeSecondCollectionViewCell.self, forCellWithReuseIdentifier: "HomeSecondCollectionViewCell")
+        collectionView.register(HomeThirdCollectionViewCell.self, forCellWithReuseIdentifier: "HomeThirdCollectionViewCell")
+        collectionView.register(HomeFourthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFourthCollectionViewCell")
     }
     override func viewDidAppear(_ animated: Bool) {
            super.viewDidAppear(animated)
@@ -87,6 +91,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
            }
        }
     func makeUI(){
+        
         view.addSubview(deliverView)
         stickyHeaderView = StickyHeaderView(frame: .zero)
         view.addSubview(stickyHeaderView)
@@ -195,22 +200,56 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         previousContentOffset = scrollView.contentOffset // 이전 컨텐트 오프셋 업데이트
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+          return 4
+      }
+
+      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+          return 1
+      }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
-        
-        
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFirstCollectionViewCell", for: indexPath) as! HomeFirstCollectionViewCell
+            return cell
+        } else if indexPath.section == 1{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSecondCollectionViewCell", for: indexPath) as! HomeSecondCollectionViewCell
+            return cell
+        }
+        else if indexPath.section == 2{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeThirdCollectionViewCell", for: indexPath) as! HomeThirdCollectionViewCell
+            return cell
+        }
+        else if indexPath.section == 3{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthCollectionViewCell", for: indexPath) as! HomeFourthCollectionViewCell
+            return cell
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthCollectionViewCell", for: indexPath) as! HomeFourthCollectionViewCell
+            return cell
+        }
+  
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: view.bounds.width, height: 400)
-       }
+        if indexPath.section == 0 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.3)
+        } else if indexPath.section == 1 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+        } else if indexPath.section == 2 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+        } else if indexPath.section == 3 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+        } else {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.5)
+        }
+        
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
     UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: CGFloat(500), left: 0, bottom: 0, right: 0)
-         }
+        switch section {
+               case 0:
+                   return UIEdgeInsets(top: CGFloat(500), left: 0, bottom: 0, right: 0)
+               default:
+                   return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+               }
+           }
 }
