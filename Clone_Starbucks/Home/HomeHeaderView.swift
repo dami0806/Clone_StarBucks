@@ -29,8 +29,8 @@ class StickyHeaderView: UIView {
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .ultraLight)
         let envelopeImage = UIImage(systemName: "envelope", withConfiguration: symbolConfig)
         button.setImage(envelopeImage, for: .normal)
-        button.setTitle("What's New", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        button.setTitle(" What's New", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -42,10 +42,10 @@ class StickyHeaderView: UIView {
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .ultraLight)
         let envelopeImage = UIImage(systemName: "ticket", withConfiguration: symbolConfig)
         button.setImage(envelopeImage, for: .normal)
-        button.setTitle("Coupon", for: .normal)
+        button.setTitle(" Coupon", for: .normal)
         button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
 
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         uiview.addSubview(button)
@@ -53,7 +53,7 @@ class StickyHeaderView: UIView {
     }()
     private lazy var bellButton: UIButton = {
         let button = UIButton()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 22, weight: .ultraLight)
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .ultraLight)
         let bellImage = UIImage(systemName: "bell", withConfiguration: symbolConfig)
         button.setImage(bellImage, for: .normal)
         button.tintColor = .black

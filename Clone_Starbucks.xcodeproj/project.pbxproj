@@ -25,6 +25,8 @@
 		378529E92A4ED407003431EA /* AllMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529E82A4ED407003431EA /* AllMenuViewController.swift */; };
 		378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EA2A4ED413003431EA /* MyMenuViewController.swift */; };
 		378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378529EC2A4ED424003431EA /* HallCakeViewController.swift */; };
+		3789A6FA2A76189000005823 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3789A6F92A76189000005823 /* HomeModel.swift */; };
+		3789A6FC2A7618F100005823 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3789A6FB2A7618F100005823 /* HomeManager.swift */; };
 		379ACDBF29CEC42F00EA4A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */; };
 		379ACDC129CEC42F00EA4A21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */; };
 		379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379ACDC229CEC42F00EA4A21 /* ViewController.swift */; };
@@ -73,6 +75,8 @@
 		378529E82A4ED407003431EA /* AllMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMenuViewController.swift; sourceTree = "<group>"; };
 		378529EA2A4ED413003431EA /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		378529EC2A4ED424003431EA /* HallCakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCakeViewController.swift; sourceTree = "<group>"; };
+		3789A6F92A76189000005823 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		3789A6FB2A7618F100005823 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		379ACDBB29CEC42F00EA4A21 /* Clone_Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clone_Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379ACDBE29CEC42F00EA4A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379ACDC029CEC42F00EA4A21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				37F81F8F2A5AFCD200B8345A /* ShopDataManager.swift */,
 				377F1B1F2A63BF1000788478 /* OtherDataManager.swift */,
 				377F1B212A63BF1E00788478 /* OtherModel.swift */,
+				3789A6F92A76189000005823 /* HomeModel.swift */,
+				3789A6FB2A7618F100005823 /* HomeManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				379C05642A53DC76008DF195 /* AllManuTableViewCell.swift in Sources */,
 				379ACDC329CEC42F00EA4A21 /* ViewController.swift in Sources */,
 				373066242A5FC72000828014 /* ShopCollectionViewCell.swift in Sources */,
+				3789A6FC2A7618F100005823 /* HomeManager.swift in Sources */,
 				37726D6D2A72A4D0002643A6 /* HomeCollectionViewCell.swift in Sources */,
 				3739DF392A651BB00093F39D /* OtherUIView.swift in Sources */,
 				379ACDDA29CEC52C00EA4A21 /* PayViewController.swift in Sources */,
@@ -376,6 +383,7 @@
 				370B8C2C2A67748E0066FF7E /* OtherWelcomeUIView.swift in Sources */,
 				377F1B242A63C2CA00788478 /* OtherTableViewCell.swift in Sources */,
 				378529ED2A4ED424003431EA /* HallCakeViewController.swift in Sources */,
+				3789A6FA2A76189000005823 /* HomeModel.swift in Sources */,
 				37F45C0C2A55C7F900B36443 /* DetailKindViewController.swift in Sources */,
 				379ACDDC29CEC53D00EA4A21 /* OrderViewController.swift in Sources */,
 				377F1B202A63BF1000788478 /* OtherDataManager.swift in Sources */,

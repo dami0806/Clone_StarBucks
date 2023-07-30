@@ -57,7 +57,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "HomeCollectionViewCell")
         view.addSubview(collectionView)
@@ -80,13 +79,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         collectionView.register(HomeSecondCollectionViewCell.self, forCellWithReuseIdentifier: "HomeSecondCollectionViewCell")
         collectionView.register(HomeThirdCollectionViewCell.self, forCellWithReuseIdentifier: "HomeThirdCollectionViewCell")
         collectionView.register(HomeFourthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFourthCollectionViewCell")
+        collectionView.register(HomeFifthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFifthCollectionViewCell")
+        collectionView.register(HomeSixthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeSixthCollectionViewCell")
+        
     }
     override func viewDidAppear(_ animated: Bool) {
            super.viewDidAppear(animated)
-           
            // 첫 번째 셀을 중간 아래로 이동 (초기 로드 시에도 실행)
            if let firstCell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) {
-               let yOffset = 500
+               let yOffset = 300
                firstCell.frame.origin.y = CGFloat(yOffset)
            }
        }
@@ -201,7 +202,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         previousContentOffset = scrollView.contentOffset // 이전 컨텐트 오프셋 업데이트
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-          return 4
+          return 6
       }
 
       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -223,8 +224,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthCollectionViewCell", for: indexPath) as! HomeFourthCollectionViewCell
             return cell
         }
+        else if indexPath.section == 4{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFifthCollectionViewCell", for: indexPath) as! HomeFifthCollectionViewCell
+            return cell
+        }
         else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthCollectionViewCell", for: indexPath) as! HomeFourthCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSixthCollectionViewCell", for: indexPath) as! HomeSixthCollectionViewCell
             return cell
         }
   
@@ -238,8 +243,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
         } else if indexPath.section == 3 {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
-        } else {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.5)
+        }
+        else if indexPath.section == 4 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+        }else {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
         }
         
     }
@@ -247,7 +255,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch section {
                case 0:
-                   return UIEdgeInsets(top: CGFloat(500), left: 0, bottom: 0, right: 0)
+                   return UIEdgeInsets(top: CGFloat(300), left: 0, bottom: 0, right: 0)
                default:
                    return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
                }

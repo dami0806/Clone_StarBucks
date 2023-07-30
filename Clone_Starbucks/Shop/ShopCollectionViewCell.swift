@@ -58,9 +58,14 @@ class ShopAllProductCollectionViewCell: UICollectionViewCell {
     lazy var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        label.font = customFont ?? UIFont.systemFont(ofSize: 12, weight: .light)
         return label
     }()
+    var customFont: UIFont? {
+        didSet {
+            label.font = customFont
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         
