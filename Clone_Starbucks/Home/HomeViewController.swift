@@ -77,10 +77,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         collectionView.delegate = self
         collectionView.register(HomeFirstCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFirstCollectionViewCell")
         collectionView.register(HomeSecondCollectionViewCell.self, forCellWithReuseIdentifier: "HomeSecondCollectionViewCell")
-        collectionView.register(HomeThirdCollectionViewCell.self, forCellWithReuseIdentifier: "HomeThirdCollectionViewCell")
         collectionView.register(HomeFourthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFourthCollectionViewCell")
         collectionView.register(HomeFifthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFifthCollectionViewCell")
         collectionView.register(HomeSixthCollectionViewCell.self, forCellWithReuseIdentifier: "HomeSixthCollectionViewCell")
+        collectionView.register(HomeWhatsNewCollectionViewCell.self, forCellWithReuseIdentifier: "HomeWhatsNewCollectionViewCell")
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -216,14 +216,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSecondCollectionViewCell", for: indexPath) as! HomeSecondCollectionViewCell
             return cell
         }
+     
         else if indexPath.section == 2{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeThirdCollectionViewCell", for: indexPath) as! HomeThirdCollectionViewCell
-            return cell
-        }
-        else if indexPath.section == 3{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthCollectionViewCell", for: indexPath) as! HomeFourthCollectionViewCell
             return cell
         }
+        else if indexPath.section == 3{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeWhatsNewCollectionViewCell", for: indexPath) as! HomeWhatsNewCollectionViewCell
+            return cell
+        }
+       
         else if indexPath.section == 4{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFifthCollectionViewCell", for: indexPath) as! HomeFifthCollectionViewCell
             return cell
@@ -239,10 +241,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.3)
         } else if indexPath.section == 1 {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
-        } else if indexPath.section == 2 {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
-        } else if indexPath.section == 3 {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+        }    else if indexPath.section == 2 {
+            let cellHeight = collectionView.bounds.width * 0.52
+            return CGSize(width: collectionView.bounds.width, height:  cellHeight*4)
+        }
+        else if indexPath.section == 3 {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.9)
         }
         else if indexPath.section == 4 {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
@@ -256,6 +260,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch section {
                case 0:
                    return UIEdgeInsets(top: CGFloat(300), left: 0, bottom: 0, right: 0)
+        case 1:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+    
                default:
                    return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
                }

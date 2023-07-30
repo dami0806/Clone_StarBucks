@@ -11,4 +11,9 @@ struct HomeRecommandItem{
     let image: UIImage?
     let text: String
 }
+struct HomeWhatsNewItem{
+    let image: UIImage?
+    let title: String
+    let subTitle: String
 
+}

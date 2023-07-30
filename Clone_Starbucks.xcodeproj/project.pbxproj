@@ -47,6 +47,7 @@
 		37A61D7C2A4D74E600DD2476 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */; };
 		37A61D802A4D780600DD2476 /* PayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A61D7F2A4D780600DD2476 /* PayModel.swift */; };
 		37CFF37C2A4F526000BC154F /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFF37B2A4F526000BC154F /* PreView.swift */; };
+		37E25CE72A7693320092E90F /* HomeFourthDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E25CE62A7693320092E90F /* HomeFourthDetailCollectionViewCell.swift */; };
 		37ECD5CE2A6E8B5700BD3067 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECD5CD2A6E8B5700BD3067 /* test.swift */; };
 		37ECD5D02A6E8F9E00BD3067 /* CouponButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECD5CF2A6E8F9E00BD3067 /* CouponButton.swift */; };
 		37ECD5D42A6FEF2B00BD3067 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECD5D32A6FEF2B00BD3067 /* HomeHeaderView.swift */; };
@@ -95,6 +96,7 @@
 		37A61D7B2A4D74E600DD2476 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		37A61D7F2A4D780600DD2476 /* PayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayModel.swift; sourceTree = "<group>"; };
 		37CFF37B2A4F526000BC154F /* PreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
+		37E25CE62A7693320092E90F /* HomeFourthDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFourthDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		37ECD5CD2A6E8B5700BD3067 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		37ECD5CF2A6E8F9E00BD3067 /* CouponButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponButton.swift; sourceTree = "<group>"; };
 		37ECD5D32A6FEF2B00BD3067 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				37ECD5D32A6FEF2B00BD3067 /* HomeHeaderView.swift */,
 				37726D6C2A72A4CF002643A6 /* HomeCollectionViewCell.swift */,
 				37726D6E2A72BA9A002643A6 /* HomeDeliversView.swift */,
+				37E25CE62A7693320092E90F /* HomeFourthDetailCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				379ACDDE29CEC54D00EA4A21 /* ShopViewController.swift in Sources */,
 				3740C7612A59717E00B97CDD /* DetailMenuViewController.swift in Sources */,
 				37CFF37C2A4F526000BC154F /* PreView.swift in Sources */,
+				37E25CE72A7693320092E90F /* HomeFourthDetailCollectionViewCell.swift in Sources */,
 				378529EB2A4ED413003431EA /* MyMenuViewController.swift in Sources */,
 				37726D6F2A72BA9A002643A6 /* HomeDeliversView.swift in Sources */,
 				373066222A5FC70C00828014 /* ShopTableViewCell.swift in Sources */,
