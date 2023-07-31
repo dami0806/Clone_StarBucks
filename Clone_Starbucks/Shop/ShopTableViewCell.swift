@@ -276,16 +276,14 @@ class ShopBestItemsTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            //make.edges.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().inset(10)
-            
-            make.height.equalTo(contentView.snp.width).multipliedBy(1.2)}
+            make.height.equalTo(collectionView.snp.width).multipliedBy(1.2)}
+        
         pageControl.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(10)
-            make.height.equalTo(pageControl.snp.width).multipliedBy(0.8)
             make.top.equalTo(collectionView.snp.bottom).offset(10)
         }
         
@@ -326,8 +324,7 @@ extension ShopBestItemsTableViewCell: UICollectionViewDelegate, UICollectionView
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("scrollView1: \(scrollView.contentOffset.x)")
-//        print("scrollView2: \(scrollView.frame.width)")
+
         let currentPage = Int(scrollView.contentOffset.x / (scrollView.frame.width-10))
         pageControl.currentPage = currentPage
     }
@@ -381,16 +378,13 @@ class ShopNewProductsTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            //make.edges.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().inset(10)
-            
             make.height.equalTo(contentView.snp.width).multipliedBy(1.2)}
         pageControl.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(10)
-            make.height.equalTo(pageControl.snp.width).multipliedBy(0.8)
             make.top.equalTo(collectionView.snp.bottom).offset(10)
         }
         
