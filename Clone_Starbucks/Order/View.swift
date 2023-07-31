@@ -13,35 +13,18 @@ import RxSwift
 
 class selectStoreView: UIView {
     
-    //주문할 매장을 선택해주세요 버튼
+    //    //주문할 매장을 선택해주세요 버튼
     private lazy var searchShopView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
     }()
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.spacing = 3
-        stackView.backgroundColor = .clear
-        return stackView
-    }()
-    private lazy var labelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.spacing = 3
-        stackView.backgroundColor = .clear
-        return stackView
-    }()
-    private lazy var searchShopLabel: UILabel = {
+    lazy var searchShopLabel: UILabel = {
         let label = UILabel()
         label.text = "주문할 매장을 선택해 주세요"
         label.textAlignment = .left
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         return label
     }()
     private lazy var chevronDown: UIImageView = {
@@ -59,25 +42,18 @@ class selectStoreView: UIView {
     //장바구니 버튼
     private lazy var shoppingbasketView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = UIColor.selectShopBottom
         return view
     }()
-    private lazy var shoppingBacstketstackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.backgroundColor = .clear
-        stackView.spacing = 0
-        return stackView
-    }()
-
+    
+    
     private lazy var shoppingbasketLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
         label.textAlignment = .center
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-
+        
         return label
     }()
     private lazy var shoppingbasketImage: UIImageView = {
@@ -95,44 +71,52 @@ class selectStoreView: UIView {
     }
     
     func setupUI(){
+        
         super.backgroundColor = UIColor.selectShopBottom
         addSubview(searchShopView)
         addSubview(shoppingbasketView)
-        searchShopView.addSubview(stackView)
-        labelStackView.addArrangedSubview(searchShopLabel)
-        labelStackView.addArrangedSubview( chevronDown)
-      //  shoppingbasketView.addSubview(shoppingBacstketstackView)
+        
+        searchShopView.addSubview(searchShopLabel)
+        searchShopView.addSubview(chevronDown)
+        searchShopView.addSubview(searchShopLine)
         shoppingbasketView.addSubview(shoppingbasketImage)
         shoppingbasketView.addSubview(shoppingbasketLabel)
-        stackView.addArrangedSubview(labelStackView)
-        stackView.addArrangedSubview(searchShopLine)
-        chevronDown.snp.makeConstraints { make in
-            make.height.equalTo(labelStackView.snp.height).multipliedBy(0.8)
-            make.width.equalTo(chevronDown.snp.height)
-        }
+        
+        
         searchShopView.snp.makeConstraints { make in
             make.top.bottom.leading.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.8)
+            
+        }
+        searchShopLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(25)
+            make.top.equalToSuperview().inset(15)
+            make.bottom.equalToSuperview().inset(18)
+        }
+        chevronDown.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(17)
+            make.bottom.equalToSuperview().inset(23)
+            make.width.equalTo(chevronDown.snp.height).multipliedBy(0.8)
+            make.trailing.equalToSuperview().inset(8)
         }
         
-        stackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(20)
-            make.trailing.equalToSuperview()
-            make.top.bottom.equalToSuperview().inset(15)
-        }
-        searchShopLine.snp.makeConstraints { make in
-            make.height.equalTo(0.8)
-        }
-      
+        
+        
         shoppingbasketView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.trailing.equalToSuperview()
             make.leading.equalTo(searchShopView.snp.trailing).offset(5)
         }
+        searchShopLine.snp.makeConstraints { make in
+            make.height.equalTo(0.8)
+            make.top.equalTo(searchShopLabel.snp.bottom).offset(3)
+            make.leading.equalToSuperview().inset(25)
+            make.trailing.equalToSuperview()
+        }
         shoppingbasketLabel.snp.makeConstraints { make in
             make.centerY.equalTo(shoppingbasketView.snp.centerY).offset(3)
             make.centerX.equalTo(shoppingbasketView.snp.centerX)
-
+            
             
         }
         shoppingbasketImage.snp.makeConstraints { make in
@@ -140,6 +124,6 @@ class selectStoreView: UIView {
             make.height.equalToSuperview().inset(7)
             make.width.equalToSuperview().inset(12)
         }
-
+        
     }
 }

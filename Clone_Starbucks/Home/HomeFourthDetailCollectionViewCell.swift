@@ -13,9 +13,9 @@ class HomeFourthDetailCollectionViewCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.shadowColor = UIColor.lightGray.cgColor
-        imageView.layer.shadowOpacity = 0.8 //0일수록 투명
-        imageView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        imageView.layer.shadowRadius = 3 //0일수록 반경
+        imageView.layer.shadowOpacity = 0.5 //0일수록 투명
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        imageView.layer.shadowRadius = 4 //0일수록 반경
         imageView.layer.masksToBounds = false
         contentView.addSubview(imageView)
         

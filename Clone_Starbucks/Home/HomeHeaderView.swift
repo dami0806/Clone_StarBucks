@@ -83,23 +83,23 @@ class StickyHeaderView: UIView {
         super.backgroundColor = .white
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(imageView.snp.width).multipliedBy(0.6)
+            make.height.equalTo(imageView.snp.width).multipliedBy(0.65)
             
         }
         uiview.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.top.equalTo(imageView.snp.bottom).offset(5)
             make.bottom.equalToSuperview()
         }
         whatsNewButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
-            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2)
+            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2.5)
         }
         couponButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalTo(whatsNewButton.snp.trailing).offset(10)
-            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2)
+            make.width.equalTo(whatsNewButton.snp.height).multipliedBy(2.5)
         }
         bellButton.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()

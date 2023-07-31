@@ -44,8 +44,16 @@ class HomeFirstCollectionViewCell: UICollectionViewCell {
     
     private func setupUI() {
         imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(imageView.snp.width).multipliedBy(0.3)
         }
+        imageView.layer.shadowColor = UIColor.lightGray.cgColor
+        imageView.layer.shadowOpacity = 0.4 //0일수록 투명
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        imageView.layer.shadowRadius = 6 //0일수록 반경
+        imageView.layer.masksToBounds = false
+        
         
     }
 }
@@ -364,6 +372,31 @@ extension HomeFifthCollectionViewCell: UICollectionViewDataSource, UICollectionV
     
 }
 class HomeSixthCollectionViewCell: UICollectionViewCell {
+    var homeFourthArray : [UIImage] = [UIImage(named: "Home_Sixth1")!,UIImage(named: "Home_Sixth2")!,UIImage(named: "Home_Sixth3")!,UIImage(named: "Home_Sixth4")!]
+//    private lazy var view: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .clear
+//contentView.addSubview(view)
+//        return view
+//    }()
+//
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
+        return collectionView
+    }()
+    
+    var totalCellHeight: CGFloat {
+        var totalHeight: CGFloat = 300 * (0.5+0.28+0.7+0.5+0.48)
+        print(totalHeight)
+           let spacingBetweenCells: CGFloat = 15.0
+           totalHeight += CGFloat(homeFourthArray.count - 1) * spacingBetweenCells
+           return totalHeight
+       }
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -375,10 +408,54 @@ class HomeSixthCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        contentView.backgroundColor = .blue
+        contentView.addSubview(collectionView)
+       
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(HomeFourthDetailCollectionViewCell.self, forCellWithReuseIdentifier: "HomeFourthDetailCollectionViewCell")
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+//        view.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
+    }
+    
+}
+extension HomeSixthCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return homeFourthArray.count
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeFourthDetailCollectionViewCell", for: indexPath) as! HomeFourthDetailCollectionViewCell
+        cell.imageView.image = homeFourthArray[indexPath.row]
+     
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.row{
+        case 0:
+               return CGSize(width: collectionView.bounds.width * 0.95, height: collectionView.bounds.width * 0.5)
+        case 1:
+               return CGSize(width: collectionView.bounds.width * 0.95, height: collectionView.bounds.width * 0.28)
+        case 2:
+               return CGSize(width: collectionView.bounds.width * 0.95, height: collectionView.bounds.width * 0.7)
+        case 3:
+               return CGSize(width: collectionView.bounds.width * 0.95, height: collectionView.bounds.width * 0.5)
+           default:
+               return CGSize(width: collectionView.bounds.width * 0.95, height: collectionView.bounds.width * 0.48)
+           }
+  
+
+    }
+ 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+
+    }
     
 }
+
 
