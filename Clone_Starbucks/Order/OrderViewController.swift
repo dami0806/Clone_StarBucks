@@ -171,14 +171,14 @@ class OrderViewController: UIViewController {
         tabBarView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(contentView.snp.top).inset(5)
-            make.height.equalTo(50)
-            
+            make.height.equalTo(tabBarView.snp.width).multipliedBy(0.13)
+
         }
         view.addSubview(selectStore)
         selectStore.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(60)
+            make.height.equalTo(selectStore.snp.width).multipliedBy(0.15)
         }
         
         
