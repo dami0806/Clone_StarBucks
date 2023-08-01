@@ -254,7 +254,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if indexPath.section == 0 {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.3)
         } else if indexPath.section == 1 {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.68)
         }    else if indexPath.section == 2 {
             let cellHeight = collectionView.bounds.width * 0.52
             return CGSize(width: collectionView.bounds.width, height:  cellHeight*4)
@@ -263,7 +263,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.9)
         }
         else if indexPath.section == 4 {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.6)
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width * 0.68)
         }
         else if indexPath.section == 5 {
             let cell = HomeSixthCollectionViewCell()

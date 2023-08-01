@@ -133,7 +133,7 @@ extension HomeSecondCollectionViewCell: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width * 0.4, height: collectionView.bounds.width * 0.4)
+        return CGSize(width: collectionView.bounds.width * 0.45, height: collectionView.bounds.width * 0.45)
     }
     
 }
@@ -298,7 +298,7 @@ class HomeFifthCollectionViewCell: UICollectionViewCell {
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "주말에는 스타벅스 브런치와 함께"
+        label.text = "하루가 달콤해지는 디저트"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return label
@@ -322,8 +322,8 @@ class HomeFifthCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     private func setupUI() {
-        homeDataManager.makeHomeData()
-        homeDataArray = homeDataManager.getHomeData()
+        homeDataManager.makeHomeDessertData()
+        homeDataArray = homeDataManager.getHomeDessertData()
         contentView.addSubview(label)
         contentView.addSubview(collectionView)
         label.snp.makeConstraints { make in
@@ -367,7 +367,7 @@ extension HomeFifthCollectionViewCell: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width * 0.4, height: collectionView.bounds.width * 0.4)
+        return CGSize(width: collectionView.bounds.width * 0.45, height: collectionView.bounds.width * 0.45)
     }
     
 }

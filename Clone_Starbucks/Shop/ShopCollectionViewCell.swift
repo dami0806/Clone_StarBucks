@@ -59,6 +59,7 @@ class ShopAllProductCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = customFont ?? UIFont.systemFont(ofSize: 12, weight: .light)
+        label.numberOfLines = 2
         return label
     }()
     var customFont: UIFont? {
@@ -91,6 +92,9 @@ class ShopAllProductCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(uiView.snp.top).inset(10)
             make.width.height.equalTo(uiView.snp.width).multipliedBy(0.8)
             make.height.equalTo(imageView.snp.width)
+        }
+        label.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(5)
         }
         layoutIfNeeded()
         

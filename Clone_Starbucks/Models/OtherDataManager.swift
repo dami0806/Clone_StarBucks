@@ -51,8 +51,25 @@ class OtherDataManager{
         ] }
     
     func getOtherData() -> [OtherSection] {
-        
-        
         return otherDataArray
+    }
+    //
+    private var otherWelcomeDataArray: [OtherItem] = []
+
+    func makeOtherWelcomeData() {
+        otherWelcomeDataArray = [
+            OtherItem(image: UIImage(named: "별 히스토리"), text: "별 히스토리"),
+            OtherItem(image: UIImage(named: "전자영수증"), text: "전자영수증"),
+            OtherItem(image: UIImage(named: "개인정보 관리"), text: "개인정보 관리"),
+            OtherItem(image: UIImage(named: "계정정보"), text: "계정정보"),
+            OtherItem(image: UIImage(named: "나만의 메뉴"), text: "나만의 메뉴"),
+        ]
+ 
+            
+        }
+    
+    func getOtherWelcomeData() -> [OtherItem] {
+        
+        return otherWelcomeDataArray
     }
 }

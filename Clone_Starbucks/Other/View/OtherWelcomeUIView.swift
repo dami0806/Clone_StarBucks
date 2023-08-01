@@ -15,7 +15,7 @@ class OtherWelcomeItemUIView : UIView {
     
     private lazy var backView: UIView = {
         let view = UIView()
-       // view.backgroundColor = .orange
+        // view.backgroundColor = .orange
         view.layer.cornerRadius = 20
         view.backgroundColor = .white
         view.layer.shadowColor = UIColor.lightGray.cgColor
@@ -24,29 +24,36 @@ class OtherWelcomeItemUIView : UIView {
         view.layer.shadowRadius = 5 //0일수록 반경
         
         view.layer.masksToBounds = false
-   
+        
         return view
     }()
     
     private lazy var uiImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "별 히스토리")
         return image
     }()
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "라벨"
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
+    func setImage(_ image: UIImage?) {
+        uiImage.image = image
+    }
     
-    private let disposeBag = DisposeBag()
+    func setTitle(_ title: String) {
+        label.text = title
+    }
+    let disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
         bindTapGesture()
+        setImage(UIImage(named: "별 히스토리"))
+        setTitle("별 히스토리")
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -62,13 +69,13 @@ class OtherWelcomeItemUIView : UIView {
         backView.snp.makeConstraints { make in
             make.width.equalTo(super.snp.width)
             make.height.equalTo(backView.snp.width)
-
+            
         }
         uiImage.snp.makeConstraints { make in
             make.centerX.equalTo(backView)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(33)
             make.height.equalTo(uiImage.snp.width)
-            make.top.equalToSuperview().inset(20)
+            make.top.equalToSuperview().inset(23)
             
         }
         label.snp.makeConstraints { make in
@@ -91,20 +98,20 @@ class OtherWelcomeItemUIView : UIView {
     }
     
     private func handleTap() {
-      
+        
         print("a")
     }
 }
 class SinsegaeUIView: UIView {
     private let imageView: UIImageView = {
-          let imageView = UIImageView()
-          imageView.contentMode = .scaleAspectFit
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "신세계")
         
         
-          return imageView
-      }()
-      
+        return imageView
+    }()
+    
     private lazy var subLabel: UILabel = {
         let label = UILabel()
         label.text = "멤버십 혜택의 신세계"
@@ -122,7 +129,7 @@ class SinsegaeUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupContraint()
-            
+        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -151,6 +158,8 @@ class SinsegaeUIView: UIView {
 
 
 class OtherWelcomeUIView : UIView {
+    let dataManager = OtherDataManager()
+    var othersDataArray: [OtherItem] = []
     
     let starUIView: OtherWelcomeItemUIView
     let receiptUIView: OtherWelcomeItemUIView
@@ -175,7 +184,7 @@ class OtherWelcomeUIView : UIView {
         stackView.spacing = 15
         return stackView
     }()
- 
+    
     func setupSinsegeaUI(){
         sinsegeaUIView.layer.cornerRadius = 20
         sinsegeaUIView.backgroundColor = .white
@@ -185,9 +194,21 @@ class OtherWelcomeUIView : UIView {
         sinsegeaUIView.layer.shadowRadius = 5 //0일수록 반경
         
         sinsegeaUIView.layer.masksToBounds = false
-
+        
     }
     func setupView() {
+        dataManager.makeOtherWelcomeData()
+        
+        let itemViews: [OtherWelcomeItemUIView] = [starUIView, receiptUIView, myInfoUIView, accountUIView, myMenu]
+        othersDataArray = dataManager.getOtherWelcomeData()
+
+              for (index, itemView) in itemViews.enumerated() {
+                  let item = othersDataArray[index]
+                  itemView.setImage(item.image)
+                  itemView.setTitle(item.text)
+              }
+
+        
         super.addSubview(cupImage)
         super.addSubview(stackView2)
         super.addSubview(stackView1)
@@ -218,21 +239,21 @@ class OtherWelcomeUIView : UIView {
             make.trailing.equalToSuperview()
             make.bottom.equalTo(stackView2.snp.top).offset(-10)
         }
-       }
-       
-       override init(frame: CGRect) {
-           self.starUIView = OtherWelcomeItemUIView()
-           self.receiptUIView = OtherWelcomeItemUIView()
-           self.myInfoUIView = OtherWelcomeItemUIView()
-           self.accountUIView = OtherWelcomeItemUIView()
-           self.myMenu = OtherWelcomeItemUIView()
-           self.sinsegeaUIView = SinsegaeUIView()
-           self.cupImage = UIImageView()
-           super.init(frame: frame)
-           setupView()
-       }
-       
-       required init?(coder aDecoder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
-   }
+    }
+    
+    override init(frame: CGRect) {
+        self.starUIView = OtherWelcomeItemUIView()
+        self.receiptUIView = OtherWelcomeItemUIView()
+        self.myInfoUIView = OtherWelcomeItemUIView()
+        self.accountUIView = OtherWelcomeItemUIView()
+        self.myMenu = OtherWelcomeItemUIView()
+        self.sinsegeaUIView = SinsegaeUIView()
+        self.cupImage = UIImageView()
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

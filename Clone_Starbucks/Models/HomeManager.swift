@@ -13,14 +13,14 @@ class HomeDataManager{
     
     func makeHomeData() {
         homeRecommandDataArray = [
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "케이크"),
+            HomeRecommandItem(image: UIImage(named: "핑크 드링크 위드 딸기 아사이 스타벅스 리프레셔"), text: "핑크 드링크 위드 딸기 아사이 스타벅스 리프레셔"),
             
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "텀플러/보온병"),
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "머그/컵"),
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "라이프스타일"),
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "티/커피용품"),
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "세트"),
-            HomeRecommandItem(image: UIImage(named: "음료"), text: "스낵")
+            HomeRecommandItem(image: UIImage(named: "에스프레소 프라푸치노"), text: "에스프레소 프라푸치노"),
+            HomeRecommandItem(image: UIImage(named: "아이스 자몽 허니 블랙 티"), text: "아이스 자몽 허니 블랙 티"),
+            HomeRecommandItem(image: UIImage(named: "아이스 유스베리 티"), text: "아이스 유스베리 티"),
+            HomeRecommandItem(image: UIImage(named: "아이스 얼 그레이 티"), text: "아이스 얼 그레이 티"),
+            HomeRecommandItem(image: UIImage(named: "필 더 레드 190ML"), text: "필 더 레드 190ML"),
+            HomeRecommandItem(image: UIImage(named: "돌체 블랙 밀크 티"), text: "돌체 블랙 밀크 티")
         ]
     }
     func getHomeData() -> [HomeRecommandItem] {
@@ -44,6 +44,27 @@ class HomeDataManager{
     func getHomeWhatsNewData() -> [HomeWhatsNewItem] {
         
         return homeWhatsNewDataArray
+    }
+    
+    
+    private var homeDessertDataArray: [HomeRecommandItem] = []
+    
+    func makeHomeDessertData() {
+        homeDessertDataArray = [
+            HomeRecommandItem(image: UIImage(named: "7 레이어 가나슈 케이크"), text: "7 레이어 가나슈 케이크"),
+            
+            HomeRecommandItem(image: UIImage(named: "레드벨벳 크림치즈 케이크"), text: "레드벨벳 크림치즈 케이크"),
+            HomeRecommandItem(image: UIImage(named: "마스카포네 티라미수 케이크"), text: "마스카포네 티라미수 케이크"),
+            HomeRecommandItem(image: UIImage(named: "부드러운 생크림 카스텔라"), text: "부드러운 생크림 카스텔라"),
+            HomeRecommandItem(image: UIImage(named: "부드러운 티라미수 롤"), text: "부드러운 티라미수 롤"),
+            HomeRecommandItem(image: UIImage(named: "슈크림 가득 바움쿠헨"), text: "슈크림 가득 바움쿠헨"),
+            HomeRecommandItem(image: UIImage(named: "클라우드 치즈 케이크"), text: "클라우드 치즈 케이크"),
+            HomeRecommandItem(image: UIImage(named: "The 촉촉 초콜릿 생크림 케이크"), text: "The 촉촉 초콜릿 생크림 케이크")
+        ]
+    }
+    func getHomeDessertData() -> [HomeRecommandItem] {
+        
+        return homeDessertDataArray
     }
     
 }

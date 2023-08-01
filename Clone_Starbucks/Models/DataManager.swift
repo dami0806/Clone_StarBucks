@@ -51,15 +51,15 @@ class DataManager {
     
     func makeFoodsData() {
         foodsDataArray = [
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
-            Foods(foodsImage: UIImage(named: "케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800)
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800),
+            Foods(foodsImage: UIImage(named: "레드벨벳 크림치즈 케이크")!, foodsKo: "레드벨벳 크림치즈 케이크", foodsEn: "Red Velvet Cream Cheese Cake", detail: "레드벨벳 시트 사이에 크림치즈 무스를 샌드한 케이크입니다.", price: 6800)
             
         ]
     }

@@ -21,3 +21,4 @@ struct MembershipData {
     let mainLabelText: String
     let subLabelText: String
 }
+

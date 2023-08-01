@@ -90,6 +90,7 @@ class PayCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = UIColor.greenText
+        label.text = "2:00"
         label.font = UIFont.systemFont(ofSize: 15)
         validNumSt.addArrangedSubview(label)
         return label
@@ -124,7 +125,44 @@ class PayCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    private var timer: Timer?
+      private var remainingTimeInSeconds: Int = 10 {
+          didSet {
+              updateTimeLabel()
+          }
+      }
+
+      private func startTimer() {
+          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+      }
+
+      private func stopTimer() {
+          timer?.invalidate()
+          timer = nil
+      }
+
+      @objc private func updateTime() {
+          remainingTimeInSeconds -= 1
+          if remainingTimeInSeconds <= 0 {
+                     // 타이머가 00:00이 되었을 때, 타이머를 멈추고 "타이머끝" 라벨을 표시
+                     stopTimer()
+              //버튼이랑 라벨 넣기
+                     timeLabel.text = "타이머끝"
+                 } else {
+                     // 시간을 표시하는 레이블 업데이트
+                     let minutes = remainingTimeInSeconds / 60
+                     let seconds = remainingTimeInSeconds % 60
+                     timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+                 }
+             
+
+      }
+
+      private func updateTimeLabel() {
+          let minutes = remainingTimeInSeconds / 60
+          let seconds = remainingTimeInSeconds % 60
+          timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+      }
     private func setupUI() {
         // UICollectionView의 배경색 설정
         contentView.backgroundColor = .blue
@@ -217,7 +255,6 @@ class PayCollectionViewCell: UICollectionViewCell {
         
         
     }
-    
     func configure(with card: Cards) {
         cardImageView.image = card.cardImage
         cardName.text = card.cardName
@@ -227,7 +264,8 @@ class PayCollectionViewCell: UICollectionViewCell {
         barcordImageView.image = UIImage(named: "바코드")
         cardNum.text = card.cardNum
         validNumLabel.text = "바코드 유효시간"
-        timeLabel.text = "10:00"
+        timeLabel.text = "2:00"
+        startTimer()
         autoRecharge.image = UIImage(named: "자동충전")
         normalRecharge.image = UIImage(named: "일반충전")
         
