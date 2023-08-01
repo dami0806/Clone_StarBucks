@@ -209,8 +209,8 @@ class ShopBestItemsCollectionViewCell: UICollectionViewCell {
         }
         imageView.snp.makeConstraints { make in
             make.centerX.equalTo(uiView.snp.centerX)
-            make.top.equalTo(uiView.snp.top).inset(10)
-            make.width.height.equalTo(uiView.snp.width).multipliedBy(0.8)
+            make.top.equalTo(uiView.snp.top).inset(5)
+            make.width.height.equalTo(uiView.snp.width).multipliedBy(0.9)
             make.height.equalTo(imageView.snp.width)
         }
         

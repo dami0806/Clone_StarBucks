@@ -126,7 +126,7 @@ class PayCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     private var timer: Timer?
-      private var remainingTimeInSeconds: Int = 10 {
+      private var remainingTimeInSeconds: Int = 120 {
           didSet {
               updateTimeLabel()
           }
