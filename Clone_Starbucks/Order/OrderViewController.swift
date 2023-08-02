@@ -157,7 +157,6 @@ class OrderViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            
             make.height.equalTo(view.safeAreaLayoutGuide.layoutFrame.height - navigationBarHeight - 75)
             
             
@@ -178,7 +177,7 @@ class OrderViewController: UIViewController {
         selectStore.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(selectStore.snp.width).multipliedBy(0.15)
+            make.height.equalTo(selectStore.snp.width).multipliedBy(0.165)
         }
         
         
@@ -243,7 +242,6 @@ class OrderViewController: UIViewController {
             make.leading.equalToSuperview()
             make.top.equalTo(tabBarView.snp.bottom).offset(3)
             make.width.equalTo(view.bounds.width)
-            
             make.bottom.equalToSuperview()}
         selectedViewController.didMove(toParent: self)
         
@@ -323,6 +321,8 @@ extension OrderViewController: UIScrollViewDelegate,UITableViewDelegate,UITableV
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let allMenuViewController = viewControllers[0] as? AllMenuViewController {
             let tableView = allMenuViewController.tableView
+            tableView.separatorStyle = .none
+
             
             if scrollView.contentOffset.y < -88 {
                 scrollView.bounces = true // 스크롤을 위로 올릴 때 바운스 활성화

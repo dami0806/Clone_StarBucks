@@ -54,8 +54,8 @@ class DetailKindTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(price)
         image.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(15)
-            make.top.bottom.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(10)
+            make.top.bottom.equalToSuperview().inset(10)
             make.width.equalTo(image.snp.height)
         }
         

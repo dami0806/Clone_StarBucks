@@ -132,25 +132,12 @@ extension DetailKindViewController :UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return view.bounds.width*1.7
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let detailMenuVC = DetailMenuViewController()
-        //detailMenuVC.allMenuIndex = allMenuIndex
-        
-//        switch allMenuIndex {
-//        case 0:
-//        detailVC.drinksData = drinksDataArray[indexPath.row]
-//        detailVC.titleString = drinksDataArray[indexPath.row].drinkKo
-//        case 1:
-//            detailVC.foodsData = foodsDataArray[indexPath.row]
-//            detailVC.titleString = foodsDataArray[indexPath.row].foodsKo
-//        default:
-//            detailVC.goodsData = goodsDataArray[indexPath.row]
-//            detailVC.titleString = goodsDataArray[indexPath.row].kindKo
-//            break
-//        }
+
         navigationController?.pushViewController(detailMenuVC, animated: true)
     }
     
