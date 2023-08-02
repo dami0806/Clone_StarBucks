@@ -260,7 +260,7 @@ class PayCollectionViewCell: UICollectionViewCell {
         cardName.text = card.cardName
         cardNameImg.image = UIImage(named: "카드명")
         cardPointImg.image = UIImage(named: "가격")
-        cardPoint.text = "\(card.point) 원"
+        cardPoint.text = "\(formatNumberWithComma(card.point)) 원"
         barcordImageView.image = UIImage(named: "바코드")
         cardNum.text = card.cardNum
         validNumLabel.text = "바코드 유효시간"

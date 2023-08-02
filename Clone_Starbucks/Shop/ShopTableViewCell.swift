@@ -72,7 +72,7 @@ extension ShopAddTableViewCell:UICollectionViewDataSource, UICollectionViewDeleg
     
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 13)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -80,7 +80,7 @@ extension ShopAddTableViewCell:UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
 }
 

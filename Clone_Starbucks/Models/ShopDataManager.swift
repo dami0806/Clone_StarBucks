@@ -15,20 +15,20 @@ class ShopDataManager{
         shopDataArray = [
                 ShopSection(headerTitle: nil, headerButtonTitle: nil, items: [
                     ShopItem(image: UIImage(named: "add1"), text: "Item 1"),
-                    ShopItem(image: UIImage(named: "add1"), text: "Item 2"),
-                    ShopItem(image: UIImage(named: "add1"), text: "Item 3"),
-                    ShopItem(image: UIImage(named: "add1"), text: "Item 4"),
-                    ShopItem(image: UIImage(named: "add1"), text: "Item 5"),
-                    ShopItem(image: UIImage(named: "add1"), text: "Item 5")
+                    ShopItem(image: UIImage(named: "add2"), text: "Item 2"),
+                    ShopItem(image: UIImage(named: "add3"), text: "Item 3"),
+                    ShopItem(image: UIImage(named: "add4"), text: "Item 4"),
+                    ShopItem(image: UIImage(named: "add5"), text: "Item 5"),
+                    ShopItem(image: UIImage(named: "add6"), text: "Item 5")
                 ]),
                 ShopSection(headerTitle: "All Products", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [
-                    ShopItem(image: UIImage(named: "음료"), text: "케이크"),
-                    ShopItem(image: UIImage(named: "음료"), text: "텀플러/보온병"),
-                    ShopItem(image: UIImage(named: "음료"), text: "머그/컵"),
-                    ShopItem(image: UIImage(named: "음료"), text: "라이프스타일"),
-                    ShopItem(image: UIImage(named: "음료"), text: "티/커피용품"),
-                    ShopItem(image: UIImage(named: "음료"), text: "세트"),
-                    ShopItem(image: UIImage(named: "음료"), text: "스낵")
+                    ShopItem(image: UIImage(named: "ALL_케이크"), text: "케이크"),
+                    ShopItem(image: UIImage(named: "ALL_텀블러"), text: "텀플러/보온병"),
+                    ShopItem(image: UIImage(named: "ALL_머그컵"), text: "머그/컵"),
+                    ShopItem(image: UIImage(named: "ALL_라이프"), text: "라이프스타일"),
+                    ShopItem(image: UIImage(named: "ALL_티"), text: "티/커피용품"),
+                    ShopItem(image: UIImage(named: "ALL_세트"), text: "세트"),
+                    ShopItem(image: UIImage(named: "ALL_스낵"), text: "스낵")
     
                 ]),
                 ShopSection(headerTitle: "Mobile Gifts", headerButtonTitle: UIImage(systemName: "chevron.right"), items: [

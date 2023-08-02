@@ -59,9 +59,7 @@ class PayViewController: UIViewController, UIScrollViewDelegate {
     init() {
          // 사용자 정의 뷰 초기화
          twoButtonView = CouponButton(frame: .zero)
-         
-         // 부모 클래스(UINavigationController)의 초기화자 호출
-         super.init(nibName: nil, bundle: nil)
+            super.init(nibName: nil, bundle: nil)
      }
     
     required init?(coder: NSCoder) {
@@ -174,10 +172,6 @@ extension PayViewController:UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
     }
-    
-    //            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    //                return 20
-    //            }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10

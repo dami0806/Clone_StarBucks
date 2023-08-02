@@ -23,3 +23,12 @@ extension UIViewController {
         }
     }
 }
+func formatNumberWithComma(_ number: Int) -> String {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.groupingSeparator = ","
+    numberFormatter.numberStyle = .decimal
+    if let formattedNumber = numberFormatter.string(from: NSNumber(value: number)) {
+        return formattedNumber
+    }
+    return "\(number)"
+}

@@ -17,8 +17,10 @@ class ShopAddCollectionViewCell: UICollectionViewCell {
     var uiView = UIView()
     lazy var imageView:UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        
+    
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
     override init(frame: CGRect) {
