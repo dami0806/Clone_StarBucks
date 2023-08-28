@@ -39,15 +39,6 @@ class ViewController: UITabBarController{
         shopViewController.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(systemName: "bag.fill"), tag: 3)
 
         otherViewController.tabBarItem = UITabBarItem(title: "Other", image: UIImage(systemName: "ellipsis"), tag: 4)
-        
-//        let homeNavigationController = UINavigationController(rootViewController: homeViewController)
-//            let payNavigationController = UINavigationController(rootViewController: payViewController)
-//            let orderNavigationController = UINavigationController(rootViewController: orderViewController)
-//            let shopNavigationController = UINavigationController(rootViewController: shopViewController)
-//            let otherNavigationController = UINavigationController(rootViewController: otherViewController)
-        
-//        let viewControllers = [homeNavigationController, payNavigationController, orderNavigationController, shopNavigationController, otherNavigationController]
-//              self.viewControllers = viewControllers
 
         let viewControllers: [UIViewController] = [
             homeViewController,
